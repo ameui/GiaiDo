@@ -29,11 +29,9 @@ public class LV2_Sun : MonoBehaviour
             // Chuột chạm vào đối tượng này
             Debug.Log("Chuột chạm vào đối tượng: " + gameObject.name);
 
-            // Thực hiện hành động khi chạm vào đối tượng
-            if (transform.position.x == -1.072f && transform.position.y == 1.199f)
-            {
+        
                 levelManager.CompleteLevel();
-            }
+           
         }
         else
         {
