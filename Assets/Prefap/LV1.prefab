@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3965080893299278198}
   - component: {fileID: 3965080893299278197}
   - component: {fileID: 3965080893299278196}
-  - component: {fileID: 649212918}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: Untagged
@@ -28,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3965080893299278192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.489, y: -1.795, z: 0}
+  m_LocalPosition: {x: 0.492, y: -1.821, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3965080895121574309}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3965080893299278198
 SpriteRenderer:
@@ -97,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,29 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88094f0defe90584c955b26a64c613ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Watermelon: {fileID: 3965080893299278192}
-  Mandarin: {fileID: 3965080894710362885}
---- !u!50 &649212918
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3965080893299278192}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &3965080894531381626
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +154,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3965080895121574309}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3965080894531381624
 SpriteRenderer:
@@ -326,8 +302,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3965080894710362884}
   - component: {fileID: 3965080894710362891}
-  - component: {fileID: 124727465}
-  m_Layer: 0
+  - component: {fileID: 3965080894476064491}
+  - component: {fileID: 3965080894476064490}
+  - component: {fileID: 3965080894476064489}
+  m_Layer: 3
   m_Name: Mandarin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,12 +320,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3965080894710362885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -1.79, z: 0}
+  m_LocalPosition: {x: 0.51, y: -1.77, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3965080895121574309}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3965080894710362891
 SpriteRenderer:
@@ -401,7 +379,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &124727465
+--- !u!50 &3965080894476064491
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965080894710362885}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &3965080894476064490
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,10 +410,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.24883723, y: 5.6553664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -425,8 +424,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15, y: 15}
+  m_Size: {x: 7.9873366, y: 1.6080809}
   m_EdgeRadius: 0
+--- !u!114 &3965080894476064489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965080894710362885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38fdcf61c70c1544b4c48950ba56fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Watermelon: {fileID: 3965080893299278192}
+  Mandarin: {fileID: 3965080894710362885}
 --- !u!1 &3965080895121574310
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3965080895121574309
 Transform:
   m_ObjectHideFlags: 0
@@ -456,10 +469,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3965080894609521562}
+  - {fileID: 3965080893299278199}
   - {fileID: 3965080894710362884}
   - {fileID: 3965080894531381625}
   - {fileID: 3965080895180693186}
-  - {fileID: 3965080893299278199}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -493,7 +506,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3965080895121574309}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3965080895180693185
 SpriteRenderer:

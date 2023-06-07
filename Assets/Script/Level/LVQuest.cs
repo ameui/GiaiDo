@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class LVQuest : MonoBehaviour
 {
     public Text questText;
-    public GameObject ChePanel;
 
     public void SetQuest(string quest)
     {
