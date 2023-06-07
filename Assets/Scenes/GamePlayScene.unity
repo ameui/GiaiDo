@@ -2226,10 +2226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LV7
       objectReference: {fileID: 0}
-    - target: {fileID: 440222931375397014, guid: bb5a689aa4919144db22138ae13ca904, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 440222931375397015, guid: bb5a689aa4919144db22138ae13ca904, type: 3}
       propertyPath: m_RootOrder
       value: 10
