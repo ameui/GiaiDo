@@ -533,10 +533,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCompletePanel: {fileID: 745817343}
   levels:
-  - {fileID: 1572762509}
+  - {fileID: 1937461897}
   - {fileID: 1353350695}
   - {fileID: 2085061908}
-  - {fileID: 1937461897}
+  - {fileID: 1572762509}
   - {fileID: 220458778}
   - {fileID: 254001832}
   - {fileID: 77834336}
@@ -2270,6 +2270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LV7
       objectReference: {fileID: 0}
+    - target: {fileID: 440222931375397014, guid: bb5a689aa4919144db22138ae13ca904, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 440222931375397015, guid: bb5a689aa4919144db22138ae13ca904, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2717,6 +2721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LV5
       objectReference: {fileID: 0}
+    - target: {fileID: 7697487269511497338, guid: 61745347a3f607442aa096ec86085b41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61745347a3f607442aa096ec86085b41, type: 3}
 --- !u!1001 &8642615539583669520
@@ -2729,6 +2737,10 @@ PrefabInstance:
     - target: {fileID: 8642615538727194722, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
       propertyPath: m_Name
       value: LV8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642615538727194722, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8642615538727194723, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
       propertyPath: m_RootOrder

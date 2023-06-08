@@ -5,6 +5,7 @@ using UnityEngine;
 public class LV1_Mandarin : MonoBehaviour
 {
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     public GameObject Watermelon;
     public GameObject Mandarin;
 
@@ -13,6 +14,7 @@ public class LV1_Mandarin : MonoBehaviour
      private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         isTouching = true;
     }
 
@@ -29,7 +31,9 @@ public class LV1_Mandarin : MonoBehaviour
         if (isTouching && overlapResult == null)
         {
             isTouching = false;
+            tickCompleteLevel.Tick();
             levelManager.CompleteLevel();
+            
         }
         else if (!isTouching && overlapResult != null)
         {

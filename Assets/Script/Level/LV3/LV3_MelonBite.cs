@@ -5,10 +5,12 @@ using UnityEngine;
 public class LV3_MelonBite : MonoBehaviour
 {
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     // Start is called before the first frame update
     private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();   
     }
 
     private void OnMouseDown()
@@ -25,6 +27,7 @@ public class LV3_MelonBite : MonoBehaviour
             if (transform.position.x == -1.438f && transform.position.y == 0.028f)
             {
                 levelManager.CompleteLevel();
+                tickCompleteLevel.Tick();   
             }
         }
         else

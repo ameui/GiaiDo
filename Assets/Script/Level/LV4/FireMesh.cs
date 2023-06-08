@@ -8,20 +8,9 @@ public class FireMesh : MonoBehaviour
     private bool isMerged = false;
     private int mergeCount = 0;
     private LevelManager levelManager;
-
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    Debug.Log("OnCollisionEnter2D called");
-    //    if (other.gameObject.CompareTag("Fire"))
-    //    {
-    //        float newSize = transform.localScale.x + other.transform.localScale.x;
-    //        Debug.Log("newSize" + newSize);
-    //        transform.localScale = new Vector3(newSize, newSize, newSize);
-    //        Debug.Log("abc" + transform.localScale);
-    //        // Tiêu hủy đối tượng lửa khác sau khi hợp nhất
-    //        Destroy(other.gameObject);
-    //    }
-    //}
+    private TickCompleteLevel tickCompleteLevel;
+    private bool isComplete = false;
+    private Transform tickTransform; // Thêm biến tickTransform để lưu trữ vị trí của đối tượng TickCompleteLevel
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -43,11 +32,19 @@ public class FireMesh : MonoBehaviour
         }
     }
 
- 
+
     // Start is called before the first frame update
     private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+      
+        // Tìm đối tượng TickCompleteLevel trong đống lửa hiện tại
+  
+        if (tickCompleteLevel != null)
+        {
+            tickTransform = tickCompleteLevel.transform;
+        }
     }
 
     private void Update()
@@ -56,9 +53,27 @@ public class FireMesh : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (mergeCount >= 3)
+        // Đếm số lượng đống lửa còn lại trong cảnh
+        int fireCount = GameObject.FindGameObjectsWithTag("Fire").Length;
+
+        if (fireCount == 1) // Nếu chỉ còn một đống lửa duy nhất
+        {
+            isComplete = true;
+        }
+        if (isComplete && !isMerged)
         {
             levelManager.CompleteLevel();
+            if (tickTransform != null)
+            {
+                tickTransform.position = transform.position; // Di chuyển đối tượng TickCompleteLevel đến vị trí của đống lửa cuối cùng
+            }
+       /*     TickCompleteLevel tickCompleteLevel = GetComponentInChildren<TickCompleteLevel>();*/
+            if (tickCompleteLevel != null)
+            {
+                tickCompleteLevel.Tick();
+            }
+            /*sMerged = true;*/
         }
     }
-}
+    }
+

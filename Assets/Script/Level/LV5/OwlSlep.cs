@@ -5,6 +5,7 @@ using UnityEngine;
 public class OwlSlep : MonoBehaviour
 {
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     public Sprite closedEyesSprite; // Sprite của con cú với mắt nhắm
     public Sprite openEyesSprite; // Sprite của con cú với mắt mở
     public SunMove sunMove; // Tham chiếu đến đối tượng SunMove
@@ -14,6 +15,7 @@ public class OwlSlep : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
     }
 
     public void ToggleEyes()
@@ -37,6 +39,7 @@ public class OwlSlep : MonoBehaviour
         {
             ToggleEyes();
             levelManager.CompleteLevel();
+            tickCompleteLevel.Tick();
         }
     }
 

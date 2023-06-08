@@ -5,10 +5,12 @@ using UnityEngine;
 public class LV9_HuouMove : MonoBehaviour
 {
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
     void Start()
     {      
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
     }
     private void OnMouseDrag()
     {
@@ -20,6 +22,7 @@ public class LV9_HuouMove : MonoBehaviour
         if (IsColliderInsideAnotherCollider(GetComponent<BoxCollider>(), targetObject.GetComponent<BoxCollider>()))
         {
             levelManager.CompleteLevel();
+            tickCompleteLevel.Tick();
         }
     }
 

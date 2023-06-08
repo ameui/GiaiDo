@@ -5,10 +5,12 @@ using UnityEngine;
 public class LV2_Sun : MonoBehaviour
 {
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     // Start is called before the first frame update
     private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
     }
 
     private void OnMouseDown()
@@ -31,7 +33,7 @@ public class LV2_Sun : MonoBehaviour
 
         
                 levelManager.CompleteLevel();
-           
+                tickCompleteLevel.Tick();
         }
         else
         {

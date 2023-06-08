@@ -6,10 +6,12 @@ public class LV11_ChiaKhoa : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
 
-    void Start()
+    public void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
     }
@@ -18,5 +20,6 @@ public class LV11_ChiaKhoa : MonoBehaviour
     {
         spriteRenderer.enabled = true;
         levelManager.CompleteLevel();
+        tickCompleteLevel.Tick();
     }
 }

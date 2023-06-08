@@ -10,10 +10,12 @@ public class LV10_HuouScale : MonoBehaviour
     private int maxScaleTimes = 1; // Số lần scale tối đa
     private float initialTouchDistance; // Khoảng cách ban đầu giữa hai ngón tay
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
 
     private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         col2D = GetComponent<Collider2D>();
     }
 
@@ -48,5 +50,6 @@ public class LV10_HuouScale : MonoBehaviour
     {       
         transform.localScale *= zoomFactor;
         levelManager.CompleteLevel();
+        tickCompleteLevel.Tick();
     }
 }

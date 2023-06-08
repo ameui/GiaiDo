@@ -10,11 +10,13 @@ public class LV7_NestCheck : MonoBehaviour
     public GameObject Nest;
     public GameObject ClickableObject; // Đối tượng mà người dùng cần nhấp chuột vào
     private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
     private bool isTouching;
 
     void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         isTouching = true;
     }
 
@@ -45,6 +47,7 @@ public class LV7_NestCheck : MonoBehaviour
         if (!isTouching) // Nếu hai hộp không còn tiếp xúc với nhau
         {
             levelManager.CompleteLevel();
+            tickCompleteLevel.Tick();
         }
     }
 }
