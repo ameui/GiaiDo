@@ -45,8 +45,7 @@ public class LV10_HuouScale : MonoBehaviour
         }
     }
     public void ZoomIn()
-    {
-        Debug.Log(transform.localScale);
+    {       
         transform.localScale *= zoomFactor;
         levelManager.CompleteLevel();
     }
