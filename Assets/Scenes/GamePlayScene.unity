@@ -533,14 +533,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCompletePanel: {fileID: 745817343}
   levels:
-  - {fileID: 1937461897}
+  - {fileID: 1618245446}
   - {fileID: 1353350695}
   - {fileID: 2085061908}
-  - {fileID: 1572762509}
+  - {fileID: 1937461897}
   - {fileID: 220458778}
   - {fileID: 254001832}
   - {fileID: 77834336}
   - {fileID: 1396491634}
+  - {fileID: 1572762509}
   currentLevelIndex: 0
   questList:
   - "H\xE3y tim qu\u1EA3 qu\xFDt"
@@ -551,7 +552,7 @@ MonoBehaviour:
   - "C\xE1i n\xE0o d\u01B0\u1EDBi \u0111\xE2y kh\xF4ng \u0103n \u0111\u01B0\u1EE3c"
   - "H\xE3y gi\xFAp con h\u01B0\u01A1u cao c\u1ED5 \u0103n qu\u1EA3 t\xE1o"
   - "H\xE3y t\xECm ch\xECa kh\xF3a"
-  - 
+  - "H\xE3y \u0111\u1EB7t con h\u01B0\u01A1u v\xE0o t\u1EE7 l\u1EA1nh"
   lvQuest: {fileID: 99871438}
   levelLosePanel: {fileID: 895564761}
   levelText: {fileID: 2022422756}
@@ -1526,6 +1527,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617693656}
   m_CullTransparentMesh: 1
+--- !u!1 &1618245446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4668570414971481605, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+  m_PrefabInstance: {fileID: 4668570414821589909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810981756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,13 +2447,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4668570414456500216, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570414456500216, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570414456500216, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570414456500216, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570414456500218, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4668570414971481604, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4668570414971481604, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 4668570414971481604, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2488,6 +2514,30 @@ PrefabInstance:
     - target: {fileID: 4668570414971481605, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
       propertyPath: m_Name
       value: LV9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570414971481605, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570415701127372, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570415701127372, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570415701127372, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570415701127372, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668570415701127375, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 212aff8b4bef07f419ce7d13e07fbf01, type: 3}

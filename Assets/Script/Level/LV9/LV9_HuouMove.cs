@@ -1,60 +1,45 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class LV9_HuouMove : MonoBehaviour
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
+    private LV9_TulanhZoom tulanhZoom;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
     void Start()
-    {      
+    {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+        tulanhZoom = GameObject.FindObjectOfType<LV9_TulanhZoom>();
     }
     private void OnMouseDrag()
     {
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = transform.position.z;
         transform.position = pos;
+        tulanhZoom.OnBoxColider();
 
         // Kiểm tra xem BoxCollider của pos có nằm hoàn toàn trong BoxCollider của targetObject hay không
-        if (IsColliderInsideAnotherCollider(GetComponent<BoxCollider>(), targetObject.GetComponent<BoxCollider>()))
+        BoxCollider2D posCollider = GetComponent<BoxCollider2D>();
+        BoxCollider2D targetCollider = targetObject.GetComponent<BoxCollider2D>();
+        if (posCollider.bounds.min.x >= targetCollider.bounds.min.x &&
+            posCollider.bounds.min.y >= targetCollider.bounds.min.y &&
+            posCollider.bounds.max.x <= targetCollider.bounds.max.x &&
+            posCollider.bounds.max.y <= targetCollider.bounds.max.y)
         {
             levelManager.CompleteLevel();
             tickCompleteLevel.Tick();
         }
+        
     }
 
     // Hàm này kiểm tra xem colliderA có nằm hoàn toàn trong colliderB hay không
-    private bool IsColliderInsideAnotherCollider(BoxCollider colliderA, BoxCollider colliderB)
-    {
-        // Lấy tất cả các điểm góc của BoxCollider A
-        var cornerPoints = new List<Vector3>();
 
-        var extentsA = colliderA.bounds.extents;
-        var centerA = colliderA.bounds.center;
-
-        cornerPoints.Add(centerA + new Vector3(extentsA.x, extentsA.y, extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(extentsA.x, extentsA.y, -extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(extentsA.x, -extentsA.y, extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(extentsA.x, -extentsA.y, -extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(-extentsA.x, extentsA.y, extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(-extentsA.x, extentsA.y, -extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(-extentsA.x, -extentsA.y, extentsA.z));
-        cornerPoints.Add(centerA + new Vector3(-extentsA.x, -extentsA.y, -extentsA.z));
-
-        // Kiểm tra xem tất cả các điểm góc của BoxCollider A có nằm trong BoxCollider B hay không
-        foreach (var point in cornerPoints)
-        {
-            // Nếu một điểm góc không nằm trong BoxCollider B, trả về false
-            if (!colliderB.bounds.Contains(point))
-            {
-                return false;
-            }
-        }
-
-        // Nếu tất cả các điểm góc đều nằm trong BoxCollider B, trả về true
-        return true;
-    }
 }
+
+

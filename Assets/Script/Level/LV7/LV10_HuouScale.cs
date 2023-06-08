@@ -5,9 +5,9 @@ using UnityEngine;
 public class LV10_HuouScale : MonoBehaviour
 {
     private Collider2D col2D;
-    public float zoomFactor = 2f; // Độ phóng đại của đối tượng
+    public float zoomFactor = 1.5f; // Độ phóng đại của đối tượng
     private int scaleCounter = 0; // Biến đếm số lần thay đổi kích thước
-    private int maxScaleTimes = 1; // Số lần scale tối đa
+    private int maxScaleTimes = 2; // Số lần scale tối đa
     private float initialTouchDistance; // Khoảng cách ban đầu giữa hai ngón tay
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
