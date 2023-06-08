@@ -34,7 +34,7 @@ public class MoveLid : MonoBehaviour
 
         // Nếu các hộp không giao nhau
         if (!areCollidersIntersecting)
-        {          
+        {      
             napmo= true;
         }
     }
