@@ -869,6 +869,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274013617}
   m_CullTransparentMesh: 1
+--- !u!114 &658605859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7084992939010813253, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
+  m_PrefabInstance: {fileID: 7084992939493059174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f664e6b8201cbe04eb790e9f7755c10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &729337638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1408,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121718368}
   m_CullTransparentMesh: 1
+--- !u!1 &1136663133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7084992938398347323, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
+  m_PrefabInstance: {fileID: 7084992939493059174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136663136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136663133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8fdda664bd0204cb9c93d88a821906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveLid: {fileID: 658605859}
+  pouringAngleThreshold: 180
 --- !u!1 &1353350695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 875497635544654876, guid: 35bc3946a23182f47918231b13221d62, type: 3}
@@ -2821,6 +2851,14 @@ PrefabInstance:
     - target: {fileID: 7084992937975823621, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084992939010813252, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
+      propertyPath: m_Size.y
+      value: 4.96851
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084992939010813252, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
+      propertyPath: m_Offset.y
+      value: 6.391733
       objectReference: {fileID: 0}
     - target: {fileID: 7084992939483519482, guid: 72b98ce19c6a2944d8459bb66228e5a5, type: 3}
       propertyPath: m_LocalPosition.y
