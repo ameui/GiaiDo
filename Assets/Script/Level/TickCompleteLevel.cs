@@ -16,4 +16,9 @@ public class TickCompleteLevel : MonoBehaviour
     {
         spriteRenderer.enabled = true;
     }
+
+    public void TickHide()
+    {
+        spriteRenderer.enabled = false;
+    }
 }

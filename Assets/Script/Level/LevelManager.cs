@@ -60,9 +60,11 @@ public class LevelManager : MonoBehaviour
         levelCompletePanel.SetActive(false);
         levelLosePanel.SetActive(false);
 
-        // Tải lại Level hiện tại
-        levels[currentLevelIndex].SetActive(false);
-        levels[currentLevelIndex].SetActive(true);
+        // Đặt lại tất cả các đối tượng có thể đặt lại
+        foreach (ResettableObject resettable in FindObjectsOfType<ResettableObject>())
+        {
+            resettable.ResetObject();
+        }
 
         // Hiển thị quest ở Level hiện tại
         LVQuest questPanelController = FindObjectOfType<LVQuest>();
