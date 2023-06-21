@@ -9,6 +9,8 @@ public class Box : MonoBehaviour
     private TickCompleteLevel tickCompleteLevel;
     private SpriteRenderer spriteRenderer;
     private Donut donut;
+    public EffEndLevel effEndLevel;
+    public float delayTime = 0.5f;
     public float pouringAngleThreshold = 160f; // Góc nghiêng tối thiểu để bắt đầu đổ nước
     private bool hasPoured = false; // Biến kiểm soát việc đã đổ nước hay chưa
     private void Start()
@@ -36,11 +38,17 @@ public class Box : MonoBehaviour
                 if (Mathf.Abs(rotationZ) > pouringAngleThreshold)
                 {
                     donut.DonutOn();
-                    levelManager.CompleteLevel();
+                    effEndLevel.Show();
                     tickCompleteLevel.Tick();
+                    Invoke("FunctionToCall", delayTime);
+                    
                     hasPoured = true;
                 }
             }
         }
+    }
+    private void FunctionToCall()
+    {
+        levelManager.CompleteLevel();
     }
 }

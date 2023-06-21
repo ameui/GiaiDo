@@ -6,48 +6,53 @@ using UnityEngine.XR;
 
 public class LV7_NestCheck : MonoBehaviour
 {
-    public GameObject Hen;
-    public GameObject Nest;
-    public GameObject ClickableObject; // Đối tượng mà người dùng cần nhấp chuột vào
+
+
+    public LV7HenMove henMove;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
-    private bool isTouching;
+    public float delayTime = 0.5f;
+    private BoxCollider2D nest;
+    public EffEndLevel effEndLevel;
 
+    private void Awake()
+    {
+        nest = GetComponent<BoxCollider2D>();
+        nest.enabled = false;
+    }
     void Start()
     {
+ 
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
-        isTouching = true;
+        henMove = GameObject.FindObjectOfType<LV7HenMove>();  
     }
-
-    private void Update()
-    {
-        BoxCollider2D hen = Hen.GetComponent<BoxCollider2D>();
-        BoxCollider2D nest = Nest.GetComponent<BoxCollider2D>();
-
-        Vector2 topLeft = new Vector2(nest.bounds.min.x, nest.bounds.max.y);
-        Vector2 bottomRight = new Vector2(nest.bounds.max.x, nest.bounds.min.y);
-
-        Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
-
-        if (isTouching && overlapResult == null)
-        {
-            isTouching = false;
-        }
-        else if (!isTouching && overlapResult != null)
-        {
-            isTouching = true;
-        }
-    
-}
 
     // Hàm gọi khi nhấp chuột vào đối tượng này
     public void OnMouseDown()
     {
-        if (!isTouching) // Nếu hai hộp không còn tiếp xúc với nhau
+        if (henMove.isTouching == false)
         {
-            levelManager.CompleteLevel();
+            effEndLevel.Show();
             tickCompleteLevel.Tick();
+            Invoke("FunctionToCall", delayTime);
         }
+       
+
+    }
+
+    private void FunctionToCall()
+    {
+        levelManager.CompleteLevel();
+    }
+
+    public void nestEnable()
+    {
+        nest.enabled = true;
+    }
+
+    public void nestDisable()
+    {
+          nest.enabled = false;
     }
 }

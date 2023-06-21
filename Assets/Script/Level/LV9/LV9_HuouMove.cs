@@ -7,9 +7,12 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class LV9_HuouMove : MonoBehaviour
 {
+    public float delayTime = 0.5f;
+    private bool isTouching;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     private LV9_TulanhZoom tulanhZoom;
+    public EffEndLevel effEndLevel;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
     void Start()
     {
@@ -24,21 +27,30 @@ public class LV9_HuouMove : MonoBehaviour
         transform.position = pos;
         tulanhZoom.OnBoxColider();
 
-        // Kiểm tra xem BoxCollider của pos có nằm hoàn toàn trong BoxCollider của targetObject hay không
-        BoxCollider2D posCollider = GetComponent<BoxCollider2D>();
-        BoxCollider2D targetCollider = targetObject.GetComponent<BoxCollider2D>();
-        if (posCollider.bounds.min.x >= targetCollider.bounds.min.x &&
-            posCollider.bounds.min.y >= targetCollider.bounds.min.y &&
-            posCollider.bounds.max.x <= targetCollider.bounds.max.x &&
-            posCollider.bounds.max.y <= targetCollider.bounds.max.y)
+        BoxCollider2D huouCollider = GetComponent<BoxCollider2D>();
+        BoxCollider2D tulanhCollider = targetObject.GetComponent<BoxCollider2D>();
+
+        if (!isTouching && IsColliderInsideAnother(huouCollider, tulanhCollider))
         {
-            levelManager.CompleteLevel();
+            isTouching = true;
+            effEndLevel.Show();
             tickCompleteLevel.Tick();
+            Invoke("FunctionToCall", delayTime);
         }
 
     }
+    private bool IsColliderInsideAnother(BoxCollider2D colliderA, BoxCollider2D colliderB)
+    {
+        return colliderA.bounds.min.x > colliderB.bounds.min.x &&
+               colliderA.bounds.min.y > colliderB.bounds.min.y &&
+               colliderA.bounds.max.x < colliderB.bounds.max.x &&
+               colliderA.bounds.max.y < colliderB.bounds.max.y;
+    }
 
-    // Hàm này kiểm tra xem colliderA có nằm hoàn toàn trong colliderB hay không
+    private void FunctionToCall()
+    {
+        levelManager.CompleteLevel();
+    }
 
 }
 

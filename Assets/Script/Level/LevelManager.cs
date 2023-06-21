@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,10 +9,9 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject levelCompletePanel;
 
-    
-    public List<GameObject> levels; // Danh sách các level
+    public List<GameObject> levelPrefabs; // Danh sách các level
     public int currentLevelIndex = 0; // Chỉ số của level hiện tại
-    private int currentLevel;
+    GameObject currentLevel;
     public string[] questList; //Danh sách câu hỏi
     public LVQuest lvQuest;
     public GameObject levelLosePanel;
@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (currentLevelIndex < levels.Count - 1)
+        if (currentLevelIndex < levelPrefabs.Count - 1)
         {
             levelCompletePanel.SetActive(false);
             currentLevelIndex++;
@@ -54,36 +54,31 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
+    public void UpdateLevels()
     {
-        // Đóng các panel (nếu đang mở)
-        levelCompletePanel.SetActive(false);
-        levelLosePanel.SetActive(false);
-
-        // Đặt lại tất cả các đối tượng có thể đặt lại
-        foreach (ResettableObject resettable in FindObjectsOfType<ResettableObject>())
-        {
-            resettable.ResetObject();
-        }
-
-        // Hiển thị quest ở Level hiện tại
-        LVQuest questPanelController = FindObjectOfType<LVQuest>();
-        if (questPanelController != null && questList.Length > currentLevelIndex)
-        {
-            questPanelController.SetQuest(questList[currentLevelIndex]);
-            levelText.text = "Level:" + (currentLevelIndex + 1);
-        }
-
-    }
-
-
-    private void UpdateLevels()
-    {
-        for (int i = 0; i < levels.Count; i++)
+        /*for (int i = 0; i < levels.Count; i++)
         {
             levels[i].SetActive(i == currentLevelIndex);
+        }*/
+        // Xóa level hiện tại khỏi scene (nếu có)
+        if (currentLevel != null)
+        {
+            Destroy(currentLevel);
         }
+
+        // Nạp và kích hoạt level mới từ prefab
+        if (currentLevelIndex >= 0 && currentLevelIndex < levelPrefabs.Count)
+        {
+            currentLevel = Instantiate(levelPrefabs[currentLevelIndex]);
+        }
+
+        levelCompletePanel.SetActive(false);
     }
+
+ /*   private void Destroy(int currentLevel)
+    {
+        throw new NotImplementedException();
+    }*/
 
     public void CompleteLevel()
     {
@@ -94,4 +89,5 @@ public class LevelManager : MonoBehaviour
     {
         levelLosePanel.SetActive(true);
     }
+
 }

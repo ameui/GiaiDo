@@ -7,7 +7,7 @@ public class LV11_CocSuaMove : MonoBehaviour
     public LV11_ChiaKhoa lv11chiakhoa;
     public Sprite normalGlassSprite; // Hình ảnh của cốc nước bình thường
     public Sprite pouringGlassSprite; // Hình ảnh của cốc nước khi đổ
-    public float pouringAngleThreshold = 30f; // Góc nghiêng tối thiểu để bắt đầu đổ nước
+    public float pouringAngleThreshold = 80f; // Góc nghiêng tối thiểu để bắt đầu đổ nước
     private bool hasPoured = false; // Biến kiểm soát việc đã đổ nước hay chưa
 
     private SpriteRenderer spriteRenderer;

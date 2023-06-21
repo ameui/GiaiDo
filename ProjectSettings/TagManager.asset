@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Sun
-  - 
+  - A
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 1335779823
+    locked: 0
+  - name: chuot
+    uniqueID: 91804957
     locked: 0

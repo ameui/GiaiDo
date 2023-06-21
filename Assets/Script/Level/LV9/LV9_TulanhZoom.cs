@@ -5,6 +5,7 @@ using UnityEngine;
 public class LV9_TulanhZoom : MonoBehaviour
 {
     private BoxCollider2D col2D;
+    private Vector2 originalColliderSize;
     public float zoomFactor = 1.5f; // Độ phóng đại của đối tượng
     private int scaleCounter = 0; // Biến đếm số lần thay đổi kích thước
     private int maxScaleTimes = 2; // Số lần scale tối đa
@@ -14,6 +15,7 @@ public class LV9_TulanhZoom : MonoBehaviour
     {
         col2D = GetComponent<BoxCollider2D>();
         col2D.enabled = false;
+        originalColliderSize = col2D.size;
     }
 
     private void Update()
@@ -36,13 +38,17 @@ public class LV9_TulanhZoom : MonoBehaviour
                 {
                     if (scaleCounter < maxScaleTimes)
                     {
+                        /*Vector2 newColliderSize = new Vector2(originalColliderSize.x / transform.localScale.x, originalColliderSize.y / transform.localScale.y);
+                        col2D.size = newColliderSize;*/
                         ZoomIn();
                         scaleCounter++;
+                        col2D.enabled = false;
                     }
                 }
             }
         }
     }
+
 
     public void ZoomIn()
     {

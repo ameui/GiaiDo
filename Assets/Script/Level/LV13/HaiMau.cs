@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HaiMau : MonoBehaviour
 {
    
-    private int currentIndex = 0; // Đối tượng hiện tại
     private int shakeCount = 0; // Số lần lắc hiện tại
     private float shakeThreshold = 2f; // Ngưỡng lắc để xác định lắc
     private float timeBetweenShakes = 0.5f; // Thời gian giữa các lần lắc
@@ -16,22 +15,20 @@ public class HaiMau : MonoBehaviour
     public Sprite normalOK; // Hình ảnh của cốc nước bình thường
     public Sprite pouringOK; // Hình ảnh của cốc nước khi đổ
     private SpriteRenderer spriteRenderer;
-    public Text text;
-    public Text text1;
-    public OK ok;
     private LevelManager levelManager;
-
+    private TickCompleteLevel tickCompleteLevel;
     void Start()
     {
         lastAcceleration = Vector3.zero;
         lastShakeTime = Time.time;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        ok = GameObject.FindObjectOfType<OK>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
     }
 
     void Update()
     {
+        
         CheckShake();
     }
 
@@ -39,17 +36,16 @@ public class HaiMau : MonoBehaviour
     {
         Vector3 currentAcceleration = Input.acceleration;
         float accelerationDifference = (currentAcceleration - lastAcceleration).magnitude;
-        text.text = "accelerationDifference" + accelerationDifference;
         if (accelerationDifference >= shakeThreshold && Time.time - lastShakeTime >= timeBetweenShakes)
         {
             shakeCount++;
             lastShakeTime = Time.time;
-            text1.text = "shakeCount" + shakeCount;
             if (shakeCount >= 3)
             {
-                ok.ChangeObject();
+                ToggleEyes();
                 levelManager.CompleteLevel();
-               /* spriteRenderer.sprite = pouringOK;*/
+                tickCompleteLevel.Tick();
+                /* spriteRenderer.sprite = pouringOK;*/
                 /*shakeCount = 0;*/
             }
         }
@@ -60,5 +56,13 @@ public class HaiMau : MonoBehaviour
 
         lastAcceleration = currentAcceleration;
     }
-   
-}
+
+    public void ToggleEyes()
+    {
+        if (spriteRenderer.sprite == normalOK)
+        {
+            spriteRenderer.sprite = pouringOK;
+        }
+    }
+
+    }
