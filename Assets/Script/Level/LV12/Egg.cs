@@ -27,8 +27,9 @@ public class Egg : MonoBehaviour
         if(moveMao.GetMaoGa() && moveDuoiGa.GetDuoiGa())
         {
             spriteRenderer.enabled = true;
-            levelManager.CompleteLevel();
             tickCompleteLevel.Tick();
+            levelManager.CompleteLevel();
+            
         }
     }
 }

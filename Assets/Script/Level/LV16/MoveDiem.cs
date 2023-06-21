@@ -29,8 +29,9 @@ public class MoveDiem : MonoBehaviour
             if (!isTouching)
             {
                 isTouching = true;
-                levelManager.CompleteLevel();
                 tickCompleteLevel.Tick();
+                levelManager.CompleteLevel();
+                
             }
             
         }

@@ -7,8 +7,11 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instace;
     public GameObject levelCompletePanel;
-
+    public GameObject levelGiaiDapPanel;
+    public GiaiDapLevel giaiDapLevel;
+    public string[] giaidapList; // danh sách giải đáp
     public List<GameObject> levelPrefabs; // Danh sách các level
     public int currentLevelIndex = 0; // Chỉ số của level hiện tại
     GameObject currentLevel;
@@ -16,15 +19,20 @@ public class LevelManager : MonoBehaviour
     public LVQuest lvQuest;
     public GameObject levelLosePanel;
     public Text levelText;
+    public EffEndLevel effEndLevel;
+
+    private void Awake()
+    {
+        instace = this;
+    }
 
     private void Start()
     {
         lvQuest = GameObject.FindObjectOfType<LVQuest>();
         levelCompletePanel.SetActive(false);
-        levelLosePanel.SetActive(false); 
+        levelLosePanel.SetActive(false);
+        lvQuest.OpenQuestPanel();       
         UpdateLevels();
-        
-
         // Hiển thị quest ở lv 1
         LVQuest questPanelController = FindObjectOfType<LVQuest>();
         if (questPanelController != null && questList.Length > 0)
@@ -32,18 +40,22 @@ public class LevelManager : MonoBehaviour
             questPanelController.SetQuest(questList[0]);
         }
         levelText.text = "Level: 1";
+        
+
     }
 
     public void NextLevel()
     {
         if (currentLevelIndex < levelPrefabs.Count - 1)
         {
+            effEndLevel.Hide();
             levelCompletePanel.SetActive(false);
+            levelGiaiDapPanel.SetActive(true);
             currentLevelIndex++;
             UpdateLevels();
             PlayerPrefs.SetInt("CurrentLevel", currentLevelIndex);
-            lvQuest.OpenQuestPanel();
-           
+            
+
             // Hiển thị quest ở các lv tiếp theo
             LVQuest questPanelController = FindObjectOfType<LVQuest>();
             if (questPanelController != null && questList.Length > currentLevelIndex)
@@ -51,15 +63,28 @@ public class LevelManager : MonoBehaviour
                 questPanelController.SetQuest(questList[currentLevelIndex]);
                 levelText.text = "Level:" + (currentLevelIndex + 1);
             }
+
+            // load danh sách giải đáp cho các lv tiếp theo
+            GiaiDapLevel giaidapPanelController = FindObjectOfType<GiaiDapLevel>();
+            if (giaidapPanelController != null && giaidapList.Length > currentLevelIndex)
+            {
+                giaidapPanelController.SetGiaiDap(giaidapList[currentLevelIndex]);
+            }
+        }
+    }
+
+    public void OpenGiapDapPanel()
+    {
+        giaiDapLevel.OpenGiaiDapPanel();
+        GiaiDapLevel giaidapPanelController = FindObjectOfType<GiaiDapLevel>();
+        if (giaidapPanelController != null && giaidapList.Length > 0)
+        {
+            giaidapPanelController.SetGiaiDap(giaidapList[0]);
         }
     }
 
     public void UpdateLevels()
     {
-        /*for (int i = 0; i < levels.Count; i++)
-        {
-            levels[i].SetActive(i == currentLevelIndex);
-        }*/
         // Xóa level hiện tại khỏi scene (nếu có)
         if (currentLevel != null)
         {
@@ -82,7 +107,15 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
+        effEndLevel.Show(); // Hiển thị hiệu ứng khi hoàn thành level
+
+        Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
+    }
+    private void ActivateLevelCompletePanel()
+    {
+        levelGiaiDapPanel.SetActive(false);
         levelCompletePanel.SetActive(true);
+        
     }
 
     public void LoseLevel()

@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class MoveLid : MonoBehaviour
 {
-    private LevelManager levelManager;
-    private TickCompleteLevel tickCompleteLevel;
     private Insidebox insidebox;
     public GameObject targetObject;
     public bool napmo;
 
     private void Start()
     {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
-        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         insidebox = GameObject.FindObjectOfType<Insidebox>();
         napmo= false;
     }

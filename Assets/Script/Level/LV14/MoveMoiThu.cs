@@ -28,8 +28,9 @@ public class MoveMoiThu : MonoBehaviour
         if (!isTouching && overlapResult != null)
         {
             isTouching = true;
-            levelManager.CompleteLevel();
             tickCompleteLevel.Tick();
+            levelManager.CompleteLevel();
+            
         }
     }
     private void OnMouseDrag()

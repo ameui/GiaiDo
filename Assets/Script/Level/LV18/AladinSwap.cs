@@ -49,8 +49,9 @@ public class AladinSwap : MonoBehaviour
             if (moveItem.AladinChet)
             {
                 ToggleEyesDung();
-                levelManager.CompleteLevel();
                 tickCompleteLevel.Tick();
+                levelManager.CompleteLevel();
+                
             }else if (moveItem.AladinSo)
             {
                 ToggleEyesSai();

@@ -7,16 +7,11 @@ public class Box : MonoBehaviour
     public MoveLid moveLid;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
-    private SpriteRenderer spriteRenderer;
     private Donut donut;
-    public EffEndLevel effEndLevel;
-    public float delayTime = 0.5f;
     public float pouringAngleThreshold = 160f; // Góc nghiêng tối thiểu để bắt đầu đổ nước
     private bool hasPoured = false; // Biến kiểm soát việc đã đổ nước hay chưa
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         donut= GameObject.FindObjectOfType<Donut>();
@@ -38,17 +33,12 @@ public class Box : MonoBehaviour
                 if (Mathf.Abs(rotationZ) > pouringAngleThreshold)
                 {
                     donut.DonutOn();
-                    effEndLevel.Show();
                     tickCompleteLevel.Tick();
-                    Invoke("FunctionToCall", delayTime);
-                    
+                    levelManager.CompleteLevel();
+
                     hasPoured = true;
                 }
             }
         }
-    }
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
     }
 }

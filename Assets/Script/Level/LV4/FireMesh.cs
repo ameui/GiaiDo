@@ -11,7 +11,6 @@ public class FireMesh : MonoBehaviour
     private TickCompleteLevel tickCompleteLevel;
     private bool isComplete = false;
     private Transform tickTransform; // Thêm biến tickTransform để lưu trữ vị trí của đối tượng TickCompleteLevel
-    public EffEndLevel effEndLevel;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isMerged) return; // Nếu đối tượng này đã bị hợp nhất, không xử lý va chạm nữa
@@ -62,7 +61,6 @@ public class FireMesh : MonoBehaviour
         }
         if (isComplete && !isMerged)
         {
-            effEndLevel.Show();
             levelManager.CompleteLevel();
             if (tickTransform != null)
             {

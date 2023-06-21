@@ -6,8 +6,6 @@ public class LV2_Sun : MonoBehaviour
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
-    public float delayTime = 0.5f;
-    public EffEndLevel effEndLevel;
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,15 +20,9 @@ public class LV2_Sun : MonoBehaviour
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            effEndLevel.Show();
             tickCompleteLevel.Tick();
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();
         }       
-    }
-
-    private void FunctionToCall()
-    {      
-        levelManager.CompleteLevel();
     }
 
 }

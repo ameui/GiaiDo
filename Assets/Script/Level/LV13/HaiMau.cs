@@ -43,8 +43,9 @@ public class HaiMau : MonoBehaviour
             if (shakeCount >= 3)
             {
                 ToggleEyes();
-                levelManager.CompleteLevel();
                 tickCompleteLevel.Tick();
+                levelManager.CompleteLevel();
+               
                 /* spriteRenderer.sprite = pouringOK;*/
                 /*shakeCount = 0;*/
             }

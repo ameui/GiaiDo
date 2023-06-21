@@ -34,8 +34,9 @@ public class MeoSwapSad : MonoBehaviour
         if (moveDuaChuot.meoSadSad)
         {
             EndLevel();
-            levelManager.CompleteLevel();
             tickCompleteLevel.Tick();
+            levelManager.CompleteLevel();
+            
         }
         
     }

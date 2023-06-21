@@ -9,8 +9,7 @@ public class LVQuest : MonoBehaviour
     public Text questText;
 
     public void SetQuest(string quest)
-    {
-        
+    {     
         questText.text = quest;
         gameObject.SetActive(true);
     }    

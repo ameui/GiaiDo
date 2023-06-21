@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class LevelBase : MonoBehaviour
 {
+    public float delayTime = 0.5f;
     public void DoneLevel()
     {
-        levelCompletePanel.SetActive(true);
+        Invoke("FunctionToCall", delayTime);
+    }
+    private void FunctionToCall()
+    {
+        LevelManager.instace.CompleteLevel();
     }
 }
 */

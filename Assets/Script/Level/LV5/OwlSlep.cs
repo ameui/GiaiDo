@@ -10,8 +10,6 @@ public class OwlSlep : MonoBehaviour
     public Sprite openEyesSprite; // Sprite của con cú với mắt mở
     public SunMove sunMove; // Tham chiếu đến đối tượng SunMove
     private SpriteRenderer spriteRenderer; // Để truy cập Sprite Renderer của GameObject
-    public float delayTime = 0.5f;
-    public EffEndLevel effEndLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +36,8 @@ public class OwlSlep : MonoBehaviour
         if (sunMove.sunHight)
         {
             ToggleEyes();
-            effEndLevel.Show();
             tickCompleteLevel.Tick();
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();
         }
-    }
-
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
     }
 }

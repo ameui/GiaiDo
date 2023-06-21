@@ -11,8 +11,6 @@ public class LV10_HuouScale : MonoBehaviour
     private float initialTouchDistance; // Khoảng cách ban đầu giữa hai ngón tay
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
-    public float delayTime = 0.5f;
-    public EffEndLevel effEndLevel;
 
     private void Start()
     {
@@ -51,13 +49,8 @@ public class LV10_HuouScale : MonoBehaviour
     public void ZoomIn()
     {       
         transform.localScale *= zoomFactor;
-        effEndLevel.Show();
         tickCompleteLevel.Tick();
-        Invoke("FunctionToCall", delayTime);
-    }
-
-    private void FunctionToCall()
-    {
         levelManager.CompleteLevel();
     }
+
 }

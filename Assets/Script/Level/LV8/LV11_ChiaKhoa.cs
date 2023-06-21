@@ -7,8 +7,6 @@ public class LV11_ChiaKhoa : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
-    public float delayTime = 0.5f;
-    public EffEndLevel effEndLevel;
 
     public void Start()
     {
@@ -21,12 +19,7 @@ public class LV11_ChiaKhoa : MonoBehaviour
     public void People()
     {
         spriteRenderer.enabled = true;
-        effEndLevel.Show();
         tickCompleteLevel.Tick();
-        Invoke("FunctionToCall", delayTime);
-    }
-    private void FunctionToCall()
-    {
         levelManager.CompleteLevel();
     }
 }

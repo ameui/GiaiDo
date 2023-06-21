@@ -79,14 +79,14 @@ public class MoveChuot : MonoBehaviour
     private IEnumerator PerformActionAfterOneSecond()
     {
         yield return new WaitForSeconds(1.15f); // Chờ 1 giây
-        // Thực hiện hành động của bạn tại đây
         // Cập nhật vị trí của tickCompleteLevel theo vị trí của Chuot
         tickCompleteLevel.transform.position = Chuot.transform.position;
         SetOrderInLayer1();
         animBua.ToggleOff();
         ToggleEyes();
-        levelManager.CompleteLevel();
         tickCompleteLevel.Tick();
+        levelManager.CompleteLevel();
+        
     }
     public void ToggleEyes()
     {

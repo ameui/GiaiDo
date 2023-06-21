@@ -13,7 +13,6 @@ public class LV7_NestCheck : MonoBehaviour
     private TickCompleteLevel tickCompleteLevel;
     public float delayTime = 0.5f;
     private BoxCollider2D nest;
-    public EffEndLevel effEndLevel;
 
     private void Awake()
     {
@@ -33,19 +32,12 @@ public class LV7_NestCheck : MonoBehaviour
     {
         if (henMove.isTouching == false)
         {
-            effEndLevel.Show();
             tickCompleteLevel.Tick();
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();
         }
        
 
     }
-
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
-    }
-
     public void nestEnable()
     {
         nest.enabled = true;

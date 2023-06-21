@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GiaiDapLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text giaiDapText;
+
+    public void SetGiaiDap(string quest)
     {
-        
+        giaiDapText.text = quest;
+        gameObject.SetActive(true);
+    }
+    public void CloseGiaiDapPanel()
+    {        
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OpenGiaiDapPanel()
+    {       
+        gameObject.SetActive(true);
     }
 }

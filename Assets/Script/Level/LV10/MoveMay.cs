@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class MoveMay : MonoBehaviour
 {
-    public float delayTime = 0.5f;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     private Ice ice;
     private Sun sun;
-    public EffEndLevel effEndLevel;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
 
     private void Start()
@@ -38,15 +36,9 @@ public class MoveMay : MonoBehaviour
         if (!areCollidersIntersecting)
         {
             ice.DaTan();
-            effEndLevel.Show();
             tickCompleteLevel.Tick();
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();
         }
 
-    }
-
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
     }
 }

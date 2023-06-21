@@ -7,12 +7,10 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class LV9_HuouMove : MonoBehaviour
 {
-    public float delayTime = 0.5f;
     private bool isTouching;
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     private LV9_TulanhZoom tulanhZoom;
-    public EffEndLevel effEndLevel;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
     void Start()
     {
@@ -33,9 +31,8 @@ public class LV9_HuouMove : MonoBehaviour
         if (!isTouching && IsColliderInsideAnother(huouCollider, tulanhCollider))
         {
             isTouching = true;
-            effEndLevel.Show();
             tickCompleteLevel.Tick();
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();
         }
 
     }
@@ -46,12 +43,6 @@ public class LV9_HuouMove : MonoBehaviour
                colliderA.bounds.max.x < colliderB.bounds.max.x &&
                colliderA.bounds.max.y < colliderB.bounds.max.y;
     }
-
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
-    }
-
 }
 
 

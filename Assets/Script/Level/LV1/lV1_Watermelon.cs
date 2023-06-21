@@ -9,11 +9,6 @@ public class lV1_Watermelon : MonoBehaviour
     private TickCompleteLevel tickCompleteLevel;
     public LV1_Mandarin mandarin1;
     public GameObject Mandarin;
-    public EffEndLevel effEndLevel;
-
-    // Thời gian chờ trước khi thực hiện chức năng (tính bằng giây)
-    public float delayTime = 0.5f;
-
     private bool isTouching;
 
     private void Start()
@@ -38,19 +33,11 @@ public class lV1_Watermelon : MonoBehaviour
         // Kiểm tra liệu hai đối tượng có chạm vào nhau hay không
         if (isTouching && overlapResult == null)
         {
-            effEndLevel.Show();
             isTouching = false;
             tickCompleteLevel.Tick();
-            // Gọi hàm FunctionToCall sau khoảng thời gian delayTime
-            Invoke("FunctionToCall", delayTime);
+            levelManager.CompleteLevel();           
         }
-    }
-
-    private void FunctionToCall()
-    {
-        levelManager.CompleteLevel();
-    }
-    
+    }  
 }
 
 
