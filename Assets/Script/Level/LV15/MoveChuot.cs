@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,18 +39,22 @@ public class MoveChuot : ObjectMoverManager
 
             Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
             if (overlapResult != null)
-            {
-                isTouching = true;
-                animBua.Toggle();
+            {              
+            animBua.Toggle();            
+            SetOrderInLayer1();           
+            StartCoroutine(PerformActionAfterOneSecond(OnCoroutineCompleted));
+            isTouching = true;
             hasCoroutineStarted = true;
-            SetOrderInLayer1();
-            
-            StartCoroutine(PerformActionAfterOneSecond());
-            levelManager.CompleteLevel();
         }
         
     }
-
+    private void OnCoroutineCompleted()
+    {
+        if (isTouching && hasCoroutineStarted)
+        {
+            levelManager.CompleteLevel();
+        }
+    }
     private void SetOrderInLayer()
     {
         spriteRenderer.sortingOrder = newOrderInLayer;
@@ -60,7 +65,7 @@ public class MoveChuot : ObjectMoverManager
         spriteRenderer.sortingOrder = newOrderInLayer1;
     }
 
-    private IEnumerator PerformActionAfterOneSecond()
+    private IEnumerator PerformActionAfterOneSecond(Action callback)
     {
         yield return new WaitForSeconds(1.15f); // Chờ 1 giây
         // Cập nhật vị trí của tickCompleteLevel theo vị trí của Chuot
@@ -69,9 +74,12 @@ public class MoveChuot : ObjectMoverManager
         ToggleEyes();
         animBua.ToggleOff();
         tickCompleteLevel.Tick();
-        
-        
+        if (callback != null)
+        {
+            callback();
+        }
     }
+    
     public void ToggleEyes()
     {
         if (spriteRenderer.sprite == normalChuot)
