@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMoiThu : MonoBehaviour
+public class MoveMoiThu : ObjectMoverManager
 {
     public GameObject Insidebox;
     private bool isTouching;
@@ -16,8 +16,10 @@ public class MoveMoiThu : MonoBehaviour
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();      
     }
 
-    private void Update()
-    {
+    protected override void OnMouseDrag()
+    {   
+        base.OnMouseDrag();
+
         BoxCollider2D insidebox = Insidebox.GetComponent<BoxCollider2D>();
 
         Vector2 topLeft = new Vector2(insidebox.bounds.min.x, insidebox.bounds.max.y);
@@ -30,13 +32,7 @@ public class MoveMoiThu : MonoBehaviour
             isTouching = true;
             tickCompleteLevel.Tick();
             levelManager.CompleteLevel();
-            
+
         }
-    }
-    private void OnMouseDrag()
-    {   
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
     }
 }

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunMove : MonoBehaviour
+public class SunMove : ObjectMoverManager
 {
+    private LevelManager levelManager;
+    private TickCompleteLevel tickCompleteLevel;
+    public OwlSlep owlSlep;
     public bool sunHight;
     public GameObject Tree;
     private bool isTouching;
@@ -11,13 +14,14 @@ public class SunMove : MonoBehaviour
     {
         isTouching = false;
         sunHight = false;
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+        owlSlep = GameObject.FindObjectOfType<OwlSlep>();
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {      
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
 
         BoxCollider2D tree = Tree.GetComponent<BoxCollider2D>();
 
@@ -35,6 +39,9 @@ public class SunMove : MonoBehaviour
             {
                 isTouching = true;
                 sunHight = true;
+                owlSlep.ToggleEyes();
+                tickCompleteLevel.Tick();
+                levelManager.CompleteLevel();
             }
         }
     }

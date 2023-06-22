@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MelonMove : MonoBehaviour
+public class MelonMove : ObjectMoverManager
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
@@ -17,11 +17,9 @@ public class MelonMove : MonoBehaviour
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         isTouching = true;
     }
-    public void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        transform.position = mousePosition;
+        base.OnMouseDrag();
         melonbite1.melonbiteEnabled();
 
         BoxCollider2D melonbite = MelonBite.GetComponent<BoxCollider2D>();
@@ -31,7 +29,7 @@ public class MelonMove : MonoBehaviour
 
         Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
         // Kiểm tra liệu hai đối tượng có chạm vào nhau hay không
-        if (isTouching && overlapResult == null)
+        if (overlapResult == null)
         {
             isTouching = false;
             tickCompleteLevel.Tick();

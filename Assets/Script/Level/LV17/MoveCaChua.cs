@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCaChua : MonoBehaviour
+public class MoveCaChua : ObjectMoverManager
 {
     private int oldOrderInLayer = 1;
     private int newOrderInLayer = 2;
@@ -11,10 +11,9 @@ public class MoveCaChua : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-        public void OnMouseDrag()
+        protected override void OnMouseDrag()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition;
+        base.OnMouseDrag();
         SetOrderInLayer();
     }
     private void SetOrderInLayer()

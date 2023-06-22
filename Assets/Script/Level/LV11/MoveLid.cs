@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveLid : MonoBehaviour
+public class MoveLid : ObjectMoverManager
 {
     private Insidebox insidebox;
     public GameObject targetObject;
@@ -14,11 +14,9 @@ public class MoveLid : MonoBehaviour
         napmo= false;
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
         insidebox.OnBoxSun();
 
       

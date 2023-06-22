@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMao : MonoBehaviour
+public class MoveMao : ObjectMoverManager
 {
-    private ObjectMoverManager objectMover;
     private Ga ga;
+    private Egg egg;
     public GameObject targetObject; // Đối tượng mà bạn muốn kiểm tra xem BoxCollider của pos có nằm hoàn toàn bên trong hay không
     private bool maoga;
     private void Start()
     {
         ga = GameObject.FindObjectOfType<Ga>();
-        objectMover = GameObject.FindObjectOfType<ObjectMoverManager>();
+        egg = GameObject.FindObjectOfType<Egg>();
         maoga = false;
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        Debug.Log("Khong di chuyển mào");
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
         ga.OnBoxGa();
         // Kiểm tra xem BoxCollider của pos có nằm hoàn toàn trong BoxCollider của targetObject hay không
         BoxCollider2D posCollider = GetComponent<BoxCollider2D>();
@@ -35,14 +32,7 @@ public class MoveMao : MonoBehaviour
             maoga = true;
         }
 
-
-    }
-
-    private void OnMouseUp()
-    {
-        
-        
-              
+        egg.showEgg();
     }
 
     public bool GetMaoGa()

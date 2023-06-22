@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBua : MonoBehaviour
+public class MoveBua : ObjectMoverManager
 {
     private bool isTouching;
     public GameObject Bua;
@@ -22,12 +22,9 @@ public class MoveBua : MonoBehaviour
         }
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
         isClickBua = true;
     }
 

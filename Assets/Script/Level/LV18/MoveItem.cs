@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveItem : MonoBehaviour
+public class MoveItem : ObjectMoverManager
 {
     private const string V = "Hen";
     private const string X = "A";
@@ -17,8 +17,9 @@ public class MoveItem : MonoBehaviour
         AladinChet = false;
         AladinSo = false;
     }
-    private void Update()
+    protected override void OnMouseDrag()
     {
+        base.OnMouseDrag();
         BoxCollider2D aladin = Aladin.GetComponent<BoxCollider2D>();
 
         Vector2 topLeft = new Vector2(aladin.bounds.min.x, aladin.bounds.max.y);
@@ -31,7 +32,7 @@ public class MoveItem : MonoBehaviour
         {
             if (LayerMask.LayerToName(overlapResult.gameObject.layer) == V)
             {
-                if (!isTouching )
+                if (!isTouching)
 
                 {
                     Debug.Log("abc");
@@ -53,18 +54,11 @@ public class MoveItem : MonoBehaviour
                 {
                     AladinSo = true;
                 }
-            }          
-        }else
+            }
+        }
+        else
         {
             AladinSo = false;
         }
-
-    }
-    private void OnMouseDrag()
-    {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
-
     }
 }

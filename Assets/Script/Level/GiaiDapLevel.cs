@@ -21,4 +21,8 @@ public class GiaiDapLevel : MonoBehaviour
     {       
         gameObject.SetActive(true);
     }
+    public void HideText()
+    {
+        giaiDapText.text = "";
+    }
 }

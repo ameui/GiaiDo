@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public GameObject levelCompletePanel;
     public GameObject levelGiaiDapPanel;
     public GiaiDapLevel giaiDapLevel;
+    public GiapDapLevelButton giaiDapLevelButton;
     public string[] giaidapList; // danh sách giải đáp
     public List<GameObject> levelPrefabs; // Danh sách các level
     public int currentLevelIndex = 0; // Chỉ số của level hiện tại
@@ -20,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public GameObject levelLosePanel;
     public Text levelText;
     public EffEndLevel effEndLevel;
+
 
     private void Awake()
     {
@@ -64,22 +66,33 @@ public class LevelManager : MonoBehaviour
                 levelText.text = "Level:" + (currentLevelIndex + 1);
             }
 
-            // load danh sách giải đáp cho các lv tiếp theo
+            // Ẩn văn bản giải đáp
+            if (giaiDapLevel != null)
+            {
+                giaiDapLevel.HideText();
+            }
+
+            // Hiển thị lại nút GiaiDap ở level mới
+            if (giaiDapLevelButton != null)
+            {
+                giaiDapLevelButton.ShowButton();
+            }
+
+            /*// load danh sách giải đáp cho các lv tiếp theo
             GiaiDapLevel giaidapPanelController = FindObjectOfType<GiaiDapLevel>();
             if (giaidapPanelController != null && giaidapList.Length > currentLevelIndex)
             {
                 giaidapPanelController.SetGiaiDap(giaidapList[currentLevelIndex]);
-            }
+            }*/
         }
     }
 
     public void OpenGiapDapPanel()
     {
-        giaiDapLevel.OpenGiaiDapPanel();
         GiaiDapLevel giaidapPanelController = FindObjectOfType<GiaiDapLevel>();
         if (giaidapPanelController != null && giaidapList.Length > 0)
         {
-            giaidapPanelController.SetGiaiDap(giaidapList[0]);
+            giaidapPanelController.SetGiaiDap(giaidapList[currentLevelIndex]);
         }
     }
 
@@ -96,7 +109,16 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]);
         }
-
+        levelGiaiDapPanel.SetActive(true);
+        if (giaiDapLevelButton != null)
+        {
+            giaiDapLevelButton.ShowButton();
+        }
+        // Ẩn văn bản giải đáp
+        if (giaiDapLevel != null)
+        {
+            giaiDapLevel.HideText();
+        }
         levelCompletePanel.SetActive(false);
     }
 

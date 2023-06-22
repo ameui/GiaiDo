@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 3245729261597871977}
   - component: {fileID: 374733409}
   - component: {fileID: 374733408}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d460fe5ebdb9e8d47800bdf015e29986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chuot: {fileID: 3245729261597871976}
+  Bua: {fileID: 3245729262200280406}
   animBua: {fileID: 3245729262200280402}
   animchuot: {fileID: 374733408}
   normalChuot: {fileID: 21300000, guid: 69d4d442a26541e40abd9715cab3ce66, type: 3}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 3245729262200280402}
   - component: {fileID: 3245729262200280403}
   - component: {fileID: 3245729262200280364}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: 4_1 #19514
   m_TagString: Untagged
   m_Icon: {fileID: 0}

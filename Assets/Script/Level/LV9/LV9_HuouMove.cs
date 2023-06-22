@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class LV9_HuouMove : MonoBehaviour
+public class LV9_HuouMove : ObjectMoverManager
 {
     private bool isTouching;
     private LevelManager levelManager;
@@ -18,11 +18,9 @@ public class LV9_HuouMove : MonoBehaviour
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         tulanhZoom = GameObject.FindObjectOfType<LV9_TulanhZoom>();
     }
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
         tulanhZoom.OnBoxColider();
 
         BoxCollider2D huouCollider = GetComponent<BoxCollider2D>();

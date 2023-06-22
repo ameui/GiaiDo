@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class lV1_Watermelon : MonoBehaviour
+public class lV1_Watermelon : ObjectMoverManager
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
@@ -18,11 +18,9 @@ public class lV1_Watermelon : MonoBehaviour
         isTouching = true; 
         
     }
-    public void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        transform.position = mousePosition;
+        base.OnMouseDrag();
         mandarin1.madarinEnabled();
         BoxCollider2D mandarin = Mandarin.GetComponent<BoxCollider2D>();
 

@@ -10,12 +10,18 @@ public class GiapDapLevelButton : MonoBehaviour
     private void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnGiaiDapLevelButtonClick);
+        button.onClick.AddListener(OnClick);
     }
-    public void OnGiaiDapLevelButtonClick()
+    public void OnClick()
     {
         Debug.Log("abc");
         levelManager.OpenGiapDapPanel();
+        gameObject.SetActive(false);
     }
-    
+    public void ShowButton()
+    {
+        gameObject.SetActive(true);
+        /*button.enabled = true;*/
+    }
+
 }

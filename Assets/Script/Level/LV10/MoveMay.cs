@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMay : MonoBehaviour
+public class MoveMay : ObjectMoverManager
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
@@ -18,11 +18,9 @@ public class MoveMay : MonoBehaviour
         sun = GameObject.FindObjectOfType<Sun>();
     }
 
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;
+        base.OnMouseDrag();
         sun.OnBoxSun();
 
         // Kiểm tra xem BoxCollider của pos có nằm hoàn toàn trong BoxCollider của targetObject hay không

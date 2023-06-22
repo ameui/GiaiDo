@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveDuaChuot : MonoBehaviour
+public class MoveDuaChuot : ObjectMoverManager
 {
     private int oldOrderInLayer = 1;
     private int newOrderInLayer = 2;
@@ -18,8 +18,10 @@ public class MoveDuaChuot : MonoBehaviour
         meoSadSad = false;
     }
 
-    public void Update()
+    protected override void OnMouseDrag()
     {
+        base.OnMouseDrag();
+        SetOrderInLayer();
         BoxCollider2D duaChuot = DuaChuot.GetComponent<BoxCollider2D>();
 
         Vector2 topLeft = new Vector2(duaChuot.bounds.min.x, duaChuot.bounds.max.y);
@@ -29,15 +31,9 @@ public class MoveDuaChuot : MonoBehaviour
 
         if (!isTouching && overlapResult != null)
         {
-            isTouching = true;    
+            isTouching = true;
             meoSadSad = true;
         }
-    }
-    public void OnMouseDrag()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition;
-        SetOrderInLayer();
     }
     private void SetOrderInLayer()
     {

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveChuot : MonoBehaviour
+public class MoveChuot : ObjectMoverManager
 {
     private int newOrderInLayer = 2;
     private int newOrderInLayer1 = 4;
     private bool isTouching;
-    public GameObject Chuot;
+    public GameObject Bua;
     public AnimBua animBua;
     public Animchuot animchuot;
     public Sprite normalChuot;
@@ -25,39 +25,29 @@ public class MoveChuot : MonoBehaviour
         isTouching = false;
     }
 
-    private void Update()
-    {
-        if (isClick)
-        {
-            BoxCollider2D chuot = Chuot.GetComponent<BoxCollider2D>();
+   
+    protected override void OnMouseDrag()
+    {       
+       base.OnMouseDrag();
+        SetOrderInLayer();
+       
+            BoxCollider2D bua = Bua.GetComponent<BoxCollider2D>();
 
-            Vector2 topLeft = new Vector2(chuot.bounds.min.x, chuot.bounds.max.y);
-            Vector2 bottomRight = new Vector2(chuot.bounds.max.x, chuot.bounds.min.y);
+            Vector2 topLeft = new Vector2(bua.bounds.min.x, bua.bounds.max.y);
+            Vector2 bottomRight = new Vector2(bua.bounds.max.x, bua.bounds.min.y);
 
             Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
-            if (!isTouching && overlapResult != null)
-
+            if (overlapResult != null)
             {
-
                 isTouching = true;
-
-                animBua.Toggle();                 
-            }
-        }
-        if (isTouching && !isClick && !hasCoroutineStarted)
-        {
+                animBua.Toggle();
             hasCoroutineStarted = true;
+            SetOrderInLayer1();
+            
             StartCoroutine(PerformActionAfterOneSecond());
+            levelManager.CompleteLevel();
         }
-    }
-   
-    private void OnMouseDrag()
-    {
-        isClick = true;
-        var pos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-        pos.z = transform.position.z;
-        transform.position = pos;
-        SetOrderInLayer();
+        
     }
 
     private void SetOrderInLayer()
@@ -70,22 +60,16 @@ public class MoveChuot : MonoBehaviour
         spriteRenderer.sortingOrder = newOrderInLayer1;
     }
 
-    private void OnMouseUp()
-    {
-        Debug.Log("anc");
-        isClick = false;
-    }
-
     private IEnumerator PerformActionAfterOneSecond()
     {
         yield return new WaitForSeconds(1.15f); // Chờ 1 giây
         // Cập nhật vị trí của tickCompleteLevel theo vị trí của Chuot
-        tickCompleteLevel.transform.position = Chuot.transform.position;
-        SetOrderInLayer1();
-        animBua.ToggleOff();
+        tickCompleteLevel.transform.position = Bua.transform.position;
+        
         ToggleEyes();
+        animBua.ToggleOff();
         tickCompleteLevel.Tick();
-        levelManager.CompleteLevel();
+        
         
     }
     public void ToggleEyes()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LV7HenMove : MonoBehaviour
+public class LV7HenMove : ObjectMoverManager
 {
     public GameObject Nest;
     public LV7_NestCheck nestCheck;
@@ -14,16 +14,11 @@ public class LV7HenMove : MonoBehaviour
         isTouching = true;
         nestCheck = GameObject.FindObjectOfType<LV7_NestCheck>();
     }
-    private void OnMouseDrag()
+    protected override void OnMouseDrag()
     {
+        base.OnMouseDrag();
         nestCheck.nestEnable();
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = transform.position.z;
-        transform.position = pos;      
-    }
-
-    private void OnMouseUp()
-    {
+        
         BoxCollider2D nest = Nest.GetComponent<BoxCollider2D>();
 
         Vector2 topLeft = new Vector2(nest.bounds.min.x, nest.bounds.max.y);

@@ -6,11 +6,11 @@ public class FireMesh : MonoBehaviour
 {
     [SerializeField]
     private bool isMerged = false;
+    public bool EndLevel = false;
     private int mergeCount = 0;
-    private LevelManager levelManager;
-    private TickCompleteLevel tickCompleteLevel;
+
     private bool isComplete = false;
-    private Transform tickTransform; // Thêm biến tickTransform để lưu trữ vị trí của đối tượng TickCompleteLevel
+   
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isMerged) return; // Nếu đối tượng này đã bị hợp nhất, không xử lý va chạm nữa
@@ -31,21 +31,6 @@ public class FireMesh : MonoBehaviour
         }
     }
 
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
-        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
-      
-        // Tìm đối tượng TickCompleteLevel trong đống lửa hiện tại
-  
-        if (tickCompleteLevel != null)
-        {
-            tickTransform = tickCompleteLevel.transform;
-        }
-    }
-
     private void Update()
     {
         if (isMerged)
@@ -61,18 +46,10 @@ public class FireMesh : MonoBehaviour
         }
         if (isComplete && !isMerged)
         {
-            levelManager.CompleteLevel();
-            if (tickTransform != null)
-            {
-                tickTransform.position = transform.position; // Di chuyển đối tượng TickCompleteLevel đến vị trí của đống lửa cuối cùng
-            }
-       /*     TickCompleteLevel tickCompleteLevel = GetComponentInChildren<TickCompleteLevel>();*/
-            if (tickCompleteLevel != null)
-            {
-                tickCompleteLevel.Tick();
-            }
-            /*sMerged = true;*/
+            EndLevel = true;
+            
+            
         }
     }
-    }
+}
 
