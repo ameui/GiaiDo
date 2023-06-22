@@ -15,7 +15,6 @@ public class MoveChuot : ObjectMoverManager
     public Sprite stunChuot;
     private TickCompleteLevel tickCompleteLevel;
     private LevelManager levelManager;
-    bool isClick = false;
     private bool hasCoroutineStarted = false;
     private SpriteRenderer spriteRenderer;  
     private void Start()

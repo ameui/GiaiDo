@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour
     GameObject currentLevel;
     public string[] questList; //Danh sách câu hỏi
     public LVQuest lvQuest;
-    public GameObject levelLosePanel;
     public Text levelText;
     public EffEndLevel effEndLevel;
 
@@ -32,7 +31,6 @@ public class LevelManager : MonoBehaviour
     {
         lvQuest = GameObject.FindObjectOfType<LVQuest>();
         levelCompletePanel.SetActive(false);
-        levelLosePanel.SetActive(false);
         lvQuest.OpenQuestPanel();       
         UpdateLevels();
         // Hiển thị quest ở lv 1
@@ -139,10 +137,4 @@ public class LevelManager : MonoBehaviour
         levelCompletePanel.SetActive(true);
         
     }
-
-    public void LoseLevel()
-    {
-        levelLosePanel.SetActive(true);
-    }
-
 }
