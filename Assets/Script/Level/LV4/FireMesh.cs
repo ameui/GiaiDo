@@ -7,7 +7,6 @@ public class FireMesh : MonoBehaviour
     [SerializeField]
     private bool isMerged = false;
     public bool EndLevel = false;
-    private int mergeCount = 0;
     private LevelManager levelManager;
     private bool isComplete = false;
     private TickCompleteLevel tickCompleteLevel;
@@ -72,7 +71,6 @@ public class FireMesh : MonoBehaviour
         {
             tickTransform.position = transform.position; // Di chuyển đối tượng TickCompleteLevel đến vị trí của đống lửa cuối cùng
         }
-        /*     TickCompleteLevel tickCompleteLevel = GetComponentInChildren<TickCompleteLevel>();*/
         if (tickCompleteLevel != null)
         {
             tickCompleteLevel.Tick();
