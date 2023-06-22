@@ -125,7 +125,6 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-        Debug.Log("abc");
         effEndLevel.Show(); // Hiển thị hiệu ứng khi hoàn thành level
 
         Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây

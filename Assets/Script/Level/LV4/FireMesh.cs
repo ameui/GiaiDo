@@ -8,9 +8,20 @@ public class FireMesh : MonoBehaviour
     private bool isMerged = false;
     public bool EndLevel = false;
     private int mergeCount = 0;
-
+    private LevelManager levelManager;
     private bool isComplete = false;
-   
+    private TickCompleteLevel tickCompleteLevel;
+    private Transform tickTransform; // Thêm biến tickTransform để lưu trữ vị trí của đối tượng TickCompleteLevel
+    private void Start()
+    {
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+        StartCoroutine(CheckEndLevel()); // Bắt đầu Coroutine CheckEndLevel
+        tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+        if (tickCompleteLevel != null)
+        {
+            tickTransform = tickCompleteLevel.transform;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isMerged) return; // Nếu đối tượng này đã bị hợp nhất, không xử lý va chạm nữa
@@ -50,6 +61,24 @@ public class FireMesh : MonoBehaviour
             
             
         }
+    }
+    private IEnumerator CheckEndLevel()
+    {
+        while (!EndLevel)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+        if (tickTransform != null)
+        {
+            tickTransform.position = transform.position; // Di chuyển đối tượng TickCompleteLevel đến vị trí của đống lửa cuối cùng
+        }
+        /*     TickCompleteLevel tickCompleteLevel = GetComponentInChildren<TickCompleteLevel>();*/
+        if (tickCompleteLevel != null)
+        {
+            tickCompleteLevel.Tick();
+        }
+        // Khi EndLevel trở thành true, gọi hàm CompleteLevel
+        levelManager.CompleteLevel();
     }
 }
 
