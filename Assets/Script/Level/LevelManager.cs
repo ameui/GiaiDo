@@ -8,10 +8,8 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instace;
-    public GameObject levelCompletePanel;
-    public GameObject levelGiaiDapPanel;
-    public GiaiDapLevel giaiDapLevel;
     public GiapDapLevelButton giaiDapLevelButton;
+    public GiaiDapLevel giaiDapLevel;
     public string[] giaidapList; // danh sách giải đáp
     public List<GameObject> levelPrefabs; // Danh sách các level
     public int currentLevelIndex = 0; // Chỉ số của level hiện tại
@@ -30,8 +28,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         lvQuest = GameObject.FindObjectOfType<LVQuest>();
-        levelCompletePanel.SetActive(false);
-        lvQuest.OpenQuestPanel();       
+        PanelManager.Instance.levelCompletePanelHide();
+        PanelManager.Instance.levelQuestPanelShow();
         UpdateLevels();
         // Hiển thị quest ở lv 1
         LVQuest questPanelController = FindObjectOfType<LVQuest>();
@@ -49,8 +47,8 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex < levelPrefabs.Count - 1)
         {
             effEndLevel.Hide();
-            levelCompletePanel.SetActive(false);
-            levelGiaiDapPanel.SetActive(true);
+            PanelManager.Instance.levelCompletePanelHide();
+            PanelManager.Instance.levelGiaiDapPanelShow();
             currentLevelIndex++;
             UpdateLevels();
             PlayerPrefs.SetInt("CurrentLevel", currentLevelIndex);
@@ -107,7 +105,7 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]);
         }
-        levelGiaiDapPanel.SetActive(true);
+        PanelManager.Instance.levelGiaiDapPanelShow();
         if (giaiDapLevelButton != null)
         {
             giaiDapLevelButton.ShowButton();
@@ -117,7 +115,7 @@ public class LevelManager : MonoBehaviour
         {
             giaiDapLevel.HideText();
         }
-        levelCompletePanel.SetActive(false);
+        PanelManager.Instance.levelCompletePanelHide();
     }
 
  /*   private void Destroy(int currentLevel)
@@ -127,14 +125,16 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
+        Debug.Log("abc");
         effEndLevel.Show(); // Hiển thị hiệu ứng khi hoàn thành level
 
         Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
     }
     private void ActivateLevelCompletePanel()
     {
-        levelGiaiDapPanel.SetActive(false);
-        levelCompletePanel.SetActive(true);
         
+        PanelManager.Instance.levelGiaiDapPanelHide();
+        PanelManager.Instance.levelCompletePanelShow();
+
     }
 }
