@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveLid: {fileID: 7084992939010813253}
-  effEndLevel: {fileID: 0}
-  delayTime: 0.5
   pouringAngleThreshold: 30
 --- !u!1 &7084992937975823620
 GameObject:
@@ -406,7 +404,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 6.391733}
+  m_Offset: {x: 0, y: 3.9982107}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -417,7 +415,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 22.68, y: 4.96851}
+  m_Size: {x: 22.68, y: 9.755554}
   m_EdgeRadius: 0
 --- !u!1 &7084992939483519485
 GameObject:

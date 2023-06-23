@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instace;
+    public static LevelManager Instance { get; private set; }
     public GiapDapLevelButton giaiDapLevelButton;
     public GiaiDapLevel giaiDapLevel;
     public string[] giaidapList; // danh sách giải đáp
@@ -17,12 +17,19 @@ public class LevelManager : MonoBehaviour
     public string[] questList; //Danh sách câu hỏi
     public LVQuest lvQuest;
     public Text levelText;
-    public EffEndLevel effEndLevel;
 
 
     private void Awake()
     {
-        instace = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -46,7 +53,7 @@ public class LevelManager : MonoBehaviour
     {
         if (currentLevelIndex < levelPrefabs.Count - 1)
         {
-            effEndLevel.Hide();
+            EffectManager.Instance.effectEndLevelHide();
             PanelManager.Instance.levelCompletePanelHide();
             PanelManager.Instance.levelGiaiDapPanelShow();
             currentLevelIndex++;
@@ -125,15 +132,8 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-        effEndLevel.Show(); // Hiển thị hiệu ứng khi hoàn thành level
-
-        Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
-    }
-    private void ActivateLevelCompletePanel()
-    {
+        GameManager.Instance.LevelComplete();
         
-        PanelManager.Instance.levelGiaiDapPanelHide();
-        PanelManager.Instance.levelCompletePanelShow();
-
     }
+   
 }

@@ -23,9 +23,9 @@ public class LV11_CocSuaMove : MonoBehaviour
         {
             Vector3 acceleration = Input.acceleration;
             float rotationZ = Mathf.Atan2(-acceleration.x, -acceleration.y) * Mathf.Rad2Deg;
-
-            // Nghiêng cốc nước theo gia tốc của thiết bị
-            transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+            float rotationThreshold = 20f; // Ngưỡng lọc sự thay đổi góc quay
+            /* // Nghiêng cốc nước theo gia tốc của thiết bị
+             transform.localRotation = Quaternion.Euler(0, 0, rotationZ);*/
 
             // Thay đổi hình ảnh của cốc nước nếu góc nghiêng vượt ngưỡng
             if (Mathf.Abs(rotationZ) > pouringAngleThreshold)

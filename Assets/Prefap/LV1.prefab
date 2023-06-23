@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 983492610381993682}
   - component: {fileID: 983492610381993677}
+  - component: {fileID: 2362679623086549366}
+  - component: {fileID: 8208189240079015022}
   m_Layer: 0
   m_Name: Pineapple
   m_TagString: Untagged
@@ -84,6 +86,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2362679623086549366
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492610381993683}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 20}
+    newSize: {x: 20, y: 20}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20}
+  m_EdgeRadius: 0
+--- !u!114 &8208189240079015022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492610381993683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983492610403484719
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 983492610403484718}
   - component: {fileID: 983492610403484713}
+  - component: {fileID: 8674558071780133916}
+  - component: {fileID: 6756504084251399723}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Untagged
@@ -168,6 +210,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &8674558071780133916
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492610403484719}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.04, y: 11.88}
+    newSize: {x: 10.04, y: 11.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.04, y: 11.88}
+  m_EdgeRadius: 0
+--- !u!114 &6756504084251399723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492610403484719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983492610907377104
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mandarin1: {fileID: 7164835052639254559}
   Mandarin: {fileID: 983492612211094884}
-  effEndLevel: {fileID: 0}
-  delayTime: 0.5
 --- !u!1 &983492612031197291
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +421,8 @@ GameObject:
   m_Component:
   - component: {fileID: 983492612031197290}
   - component: {fileID: 983492612031197285}
+  - component: {fileID: 3465740721371673016}
+  - component: {fileID: 5803793588685309169}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -417,6 +497,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3465740721371673016
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492612031197291}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 50, y: 50}
+    newSize: {x: 50, y: 50}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 50, y: 50}
+  m_EdgeRadius: 0
+--- !u!114 &5803793588685309169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983492612031197291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983492612211094884
 GameObject:
   m_ObjectHideFlags: 0

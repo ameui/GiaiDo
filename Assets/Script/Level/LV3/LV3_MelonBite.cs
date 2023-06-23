@@ -8,7 +8,6 @@ public class LV3_MelonBite : MonoBehaviour
     private TickCompleteLevel tickCompleteLevel;
     public float delayTime = 0.5f;
     private BoxCollider2D MelonBite;
-    public EffEndLevel effEndLevel;
     // Start is called before the first frame update
     private void Start()
     {
@@ -27,7 +26,6 @@ public class LV3_MelonBite : MonoBehaviour
         {     
             // Thực hiện hành động khi chạm vào đối tượng           
             {
-                effEndLevel.Show();
                 tickCompleteLevel.Tick();
                 Invoke("FunctionToCall", delayTime);
             }

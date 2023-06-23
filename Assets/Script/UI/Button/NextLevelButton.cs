@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class NextLevelButton : MonoBehaviour
 {
-    public LevelManager levelManager;
     private Button button;
+    public AudioClip clickButton;
     public float fadeInDuration = 2.0f; // Thời gian để hoàn thành hiệu ứng fadeIn (giây)
     public float startDelay = 0.5f; // Thời gian chờ trước khi bắt đầu hiệu ứng (giây)
     private void Start()
@@ -17,7 +17,8 @@ public class NextLevelButton : MonoBehaviour
     }
     public void OnNextLevelButtonClick()
     {
-        levelManager.NextLevel();
+        AudioManager.Instance.PlaySFX(clickButton);
+        LevelManager.Instance.NextLevel();
     }
     private IEnumerator FadeIn()
     {

@@ -2,18 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffEndLevel : MonoBehaviour
+public class EffectManager : MonoBehaviour
 {
+    public static EffectManager Instance { get; private set; }
     public ParticleSystem emoji;
     public ParticleSystem emoji1;
     public ParticleSystem emoji2;
     public ParticleSystem emoji3;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         gameObject.SetActive(false);
     }
-    public void Show()
+    public void effectEndLevelShow()
     {
         gameObject.SetActive(true);
         emoji.Play();
@@ -21,7 +34,7 @@ public class EffEndLevel : MonoBehaviour
         emoji2.Play();
         emoji3.Play();
     }
-    public void Hide()
+    public void effectEndLevelHide()
     {
           gameObject.SetActive(false);
         emoji.Stop();

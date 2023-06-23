@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf24b0fc6a450f4e9d0dc231c0689e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 178638976}
+  clickButton: {fileID: 8300000, guid: 843532480ec3c1b4db99d921e253e7e0, type: 3}
   fadeInDuration: 1
   startDelay: 0
 --- !u!1001 &98917038
@@ -456,20 +456,19 @@ MonoBehaviour:
   - "H\xE3y t\xECm \u0111\u1EB1ng sau c\xE1c mi\u1EBFng d\u01B0a h\u1EA5u"
   - "H\xE3y di chuy\u1EC3n c\xE1c \u0111\u1ED1ng l\u1EEDa"
   - "Con c\xFA ch\u1EC9 m\u1EDF m\u1EAFt l\xFAc tr\u1EDDi t\u1ED1i"
-  - "G\xE0 l\xE0 \u0111\u1ED9ng v\u1EADt c\xF3 th\u1EC3 di chuy\u1EC3n"
-  - "H\u01B0\u01A1u ph\u1EA3i l\u1EDBn c\u1ED5 m\u1EDBi d\xE0i"
+  - "H\xE3y di chuy\u1EC3n con g\xE0 sau \u0111\xF3 t\xECm ki\u1EBFm"
+  - "h\xE3y ph\xF3ng to con h\u01B0\u01A1u"
   - "S\u1EEFa c\xF3 th\u1EC3 che l\u1EA5p ch\xECa kh\xF3a"
   - "C\u1EA7n 1 c\xE1i t\u1EE7 l\u1EA1nh to h\u01A1n"
   - "C\u1EA7n nhi\u1EC7t \u0111\u1ED9 cao \u0111\u1EC3 l\xE0m tan vi\xEAn \u0111\xE1"
   - "C\xE1i b\xE1nh trong chi\u1EBFc h\u1ED9p"
   - "G\xE0 m\xE1i m\u1EDBi c\xF3 th\u1EC3 \u0111\u1EBB tr\u1EE9ng"
-  - "2 lo\u1EA1i m\xE0u s\u1EAFc c\xF3 th\u1EC3 tr\u1ED9n l\u1EAB v\xE0o nhau n\u1EBFu
-    c\xF3 t\xE1c \u0111\u1ED9ng"
-  - "m\u1ECDi th\u1EE9 c\xF3 th\u1EC3 l\xE0 t\u1EA5t c\u1EA3 kh\xF4ng h\u1EB3n l\xE0
-    v\u1EADt ph\u1EA9m"
-  - "h\xE3y b\u1EAFt l\u1EA5y con chu\u1ED9t"
+  - "h\xE3y l\u1EAFc chi\u1EBFc l\u1ECD"
+  - "h\xE3y t\xECm ch\u1EEF m\u1ECDi th\u1EE9"
+  - "h\xE3y b\u1EAFt l\u1EA5y con chu\u1ED9t di chuy\u1EC3n \u0111\u1EBFn chi\u1EBFc
+    b\xFAa"
   - "Di chuy\u1EC3n que di\xEAm"
-  - "M\u1ED9t trong 2 lo\u1EA1i qu\u1EA3"
+  - "M\xE8o s\u1EE3 nh\u1EEFng th\u1EE9 gi\u1ED1ng r\u1EAFn"
   - "C\xE1i g\xEC b\u1ED1c m\xF9i nh\u1EA5t"
   levelPrefabs:
   - {fileID: 983492610907377104, guid: 856d7cc5305d1b94d8c116508855e6cb, type: 3}
@@ -512,7 +511,6 @@ MonoBehaviour:
   - "H\xE3y l\xE0m ng\u1EA5t th\u1EA7n \u0111\xE8n"
   lvQuest: {fileID: 99871438}
   levelText: {fileID: 2022422756}
-  effEndLevel: {fileID: 455053748}
 --- !u!4 &178638977
 Transform:
   m_ObjectHideFlags: 0
@@ -1671,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21dce56fd98309469c37c373960cfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 178638976}
+  clickButton: {fileID: 8300000, guid: 843532480ec3c1b4db99d921e253e7e0, type: 3}
 --- !u!114 &1531126555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,8 +1829,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0014648438, y: 6}
-  m_SizeDelta: {x: 934, y: 286.51}
+  m_AnchoredPosition: {x: -1.39, y: 14.39}
+  m_SizeDelta: {x: 830.56, y: 269.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1617693656
 GameObject:
@@ -1869,8 +1867,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 934, y: 286}
+  m_AnchoredPosition: {x: -4.2, y: 0}
+  m_SizeDelta: {x: 875.27, y: 286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1617693658
 MonoBehaviour:

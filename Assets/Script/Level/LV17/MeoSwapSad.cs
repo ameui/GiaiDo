@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ public class MeoSwapSad : MonoBehaviour
 {
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
+    private bool Check = false;
     public Sprite meoNormal;
     public Sprite meoSad;
     private SpriteRenderer spriteRenderer;
@@ -16,6 +17,7 @@ public class MeoSwapSad : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         tickCompleteLevel = FindObjectOfType<TickCompleteLevel>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        StartCoroutine(CheckEndLevel()); // Bắt đầu Coroutine CheckEndLevel
     }
 
     public void EndLevel()
@@ -33,12 +35,19 @@ public class MeoSwapSad : MonoBehaviour
     {
         if (moveDuaChuot.meoSadSad)
         {
-            EndLevel();
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();
-            
+            Check = true;
         }
         
     }
-    
+    private IEnumerator CheckEndLevel()
+    {
+        while (!Check)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+        EndLevel();
+        tickCompleteLevel.Tick();
+        levelManager.CompleteLevel();
+    }
+
 }

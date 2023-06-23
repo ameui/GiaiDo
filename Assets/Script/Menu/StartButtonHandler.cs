@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartButtonHandler : MonoBehaviour
 {
-  public void OnStartButtonClicked()
+    public Button startButton;
+
+    private void Start()
     {
-        SceneManager.LoadScene("GamePlayScene");
+        startButton.onClick.AddListener(() => GameManager.Instance.StartGame());
     }
 }

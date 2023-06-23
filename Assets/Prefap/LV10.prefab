@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 999671a18d69af14c884436c69695403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2566861456578566727}
   - component: {fileID: 2566861456578566725}
   - component: {fileID: 2566861456578566724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "M\xE2y"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d173c235723ddf144b6a26f1deb638fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 0.5
-  effEndLevel: {fileID: 0}
+  ice: {fileID: 2566861457579267744}
+  sun: {fileID: 2566861458220763453}
   targetObject: {fileID: 2566861458220763454}
 --- !u!61 &2566861456578566724
 BoxCollider2D:
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 8bbd728b2958def4894f881524e35a09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

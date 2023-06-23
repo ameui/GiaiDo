@@ -32,13 +32,8 @@ public class MoveItem : ObjectMoverManager
         {
             if (LayerMask.LayerToName(overlapResult.gameObject.layer) == V)
             {
-                if (!isTouching)
-
-                {
-                    Debug.Log("abc");
                     isTouching = true;
                     AladinChet = true;
-                }
             }
         }
         else
@@ -49,11 +44,8 @@ public class MoveItem : ObjectMoverManager
         {
             if (LayerMask.LayerToName(overlapResult1.gameObject.layer) == X)
             {
-                if (!isTouching)
-
-                {
+               
                     AladinSo = true;
-                }
             }
         }
         else

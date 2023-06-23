@@ -50,11 +50,23 @@ public class HaiMau : MonoBehaviour
                 /*shakeCount = 0;*/
             }
         }
-       /* else if (Time.time - lastShakeTime >= timeBetweenShakes)
+        /* else if (Time.time - lastShakeTime >= timeBetweenShakes)
+         {
+             shakeCount = 0;
+         }*/
+        float rotationZ = Mathf.Atan2(-currentAcceleration.x, -currentAcceleration.y) * Mathf.Rad2Deg;
+        float rotationThreshold = 20f; // Ngưỡng lọc sự thay đổi góc quay
+        // Kiểm tra xem sự thay đổi góc quay có lớn hơn ngưỡng không
+        if (Mathf.Abs(rotationZ) > 30)
         {
-            shakeCount = 0;
-        }*/
-
+            rotationZ = Mathf.Sign(rotationZ) * 30;
+        }
+        if (Mathf.Abs(rotationZ - transform.localEulerAngles.z) > rotationThreshold)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+        }
+        
+        
         lastAcceleration = currentAcceleration;
     }
 

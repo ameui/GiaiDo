@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GiapDapLevelButton : MonoBehaviour
 {
-    public LevelManager levelManager;
+    public AudioClip clickButton;
     private Button button;
     private void Start()
     {
@@ -14,8 +14,8 @@ public class GiapDapLevelButton : MonoBehaviour
     }
     public void OnClick()
     {
-        Debug.Log("abc");
-        levelManager.OpenGiapDapPanel();
+        AudioManager.Instance.PlaySFX(clickButton);
+        LevelManager.Instance.OpenGiapDapPanel();
         gameObject.SetActive(false);
     }
     public void ShowButton()

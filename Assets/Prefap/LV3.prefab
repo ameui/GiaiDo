@@ -126,8 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   melonbite1: {fileID: 7453133742700257102}
   MelonBite: {fileID: 7453133742700257100}
-  effEndLevel: {fileID: 0}
-  delayTime: 0.5
 --- !u!1 &7453133742700257100
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayTime: 1
-  effEndLevel: {fileID: 0}
 --- !u!1 &7453133742813613057
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +261,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7453133742813613056}
   - component: {fileID: 7453133742813613059}
+  - component: {fileID: 7736115879025821587}
+  - component: {fileID: 2585950303053696093}
   m_Layer: 0
   m_Name: Melon (1)
   m_TagString: Untagged
@@ -338,6 +337,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7736115879025821587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133742813613057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &2585950303053696093
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133742813613057}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 16.28}
+    newSize: {x: 20.48, y: 16.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 16.28}
+  m_EdgeRadius: 0
 --- !u!1 &7453133742819366225
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +385,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7453133742819366224}
   - component: {fileID: 7453133742819366227}
+  - component: {fileID: 8157450177276516466}
+  - component: {fileID: 8668807366115968237}
   m_Layer: 0
   m_Name: Melon (2)
   m_TagString: Untagged
@@ -422,6 +461,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8157450177276516466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133742819366225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &8668807366115968237
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133742819366225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 16.28}
+    newSize: {x: 20.48, y: 16.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 16.28}
+  m_EdgeRadius: 0
 --- !u!1 &7453133743339453812
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +509,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7453133743339453815}
   - component: {fileID: 7453133743339453814}
+  - component: {fileID: 3168732016534729092}
+  - component: {fileID: 3561609739433122478}
   m_Layer: 0
   m_Name: Melon
   m_TagString: Untagged
@@ -506,6 +585,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3168732016534729092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743339453812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &3561609739433122478
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743339453812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 16.28}
+    newSize: {x: 20.48, y: 16.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 16.28}
+  m_EdgeRadius: 0
 --- !u!1 &7453133743511778828
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +633,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7453133743511778831}
   - component: {fileID: 7453133743511778830}
+  - component: {fileID: 8314050292420620965}
+  - component: {fileID: 7606615137144538281}
   m_Layer: 0
   m_Name: Melon (3)
   m_TagString: Untagged
@@ -590,6 +709,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8314050292420620965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743511778828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &7606615137144538281
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743511778828}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 16.28}
+    newSize: {x: 20.48, y: 16.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 16.28}
+  m_EdgeRadius: 0
 --- !u!1 &7453133743778804256
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +757,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7453133743778804259}
   - component: {fileID: 7453133743778804258}
+  - component: {fileID: 2538182122154215696}
+  - component: {fileID: 5108710865913644432}
   m_Layer: 0
   m_Name: Melon (4)
   m_TagString: Untagged
@@ -674,6 +833,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2538182122154215696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743778804256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4819b3ab44c45640916c64e9e9f36ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &5108710865913644432
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453133743778804256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 16.28}
+    newSize: {x: 20.48, y: 16.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 16.28}
+  m_EdgeRadius: 0
 --- !u!1 &7453133744143922049
 GameObject:
   m_ObjectHideFlags: 0

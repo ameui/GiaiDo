@@ -9,6 +9,7 @@ public class FireMesh : MonoBehaviour
     public bool EndLevel = false;
     private LevelManager levelManager;
     private bool isComplete = false;
+    private int mergeCount = 0;
     private TickCompleteLevel tickCompleteLevel;
     private Transform tickTransform; // Thêm biến tickTransform để lưu trữ vị trí của đối tượng TickCompleteLevel
     private void Start()
