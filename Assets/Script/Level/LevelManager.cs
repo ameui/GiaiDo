@@ -35,8 +35,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         lvQuest = GameObject.FindObjectOfType<LVQuest>();
-        PanelManager.Instance.levelCompletePanelHide();
-        PanelManager.Instance.levelQuestPanelShow();
+        PanelManager.Instance.levelCompletePanelShow(false);
+        PanelManager.Instance.levelQuestPanelShow(true);
         UpdateLevels();
         // Hiển thị quest ở lv 1
         LVQuest questPanelController = FindObjectOfType<LVQuest>();
@@ -54,8 +54,8 @@ public class LevelManager : MonoBehaviour
         if (currentLevelIndex < levelPrefabs.Count - 1)
         {
             EffectManager.Instance.effectEndLevelHide();
-            PanelManager.Instance.levelCompletePanelHide();
-            PanelManager.Instance.levelGiaiDapPanelShow();
+            PanelManager.Instance.levelCompletePanelShow(false);
+            PanelManager.Instance.levelGiaiDapPanelShow(true);
             currentLevelIndex++;
             UpdateLevels();
             PlayerPrefs.SetInt("CurrentLevel", currentLevelIndex);
@@ -112,7 +112,7 @@ public class LevelManager : MonoBehaviour
         {
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]);
         }
-        PanelManager.Instance.levelGiaiDapPanelShow();
+        PanelManager.Instance.levelGiaiDapPanelShow(true);
         if (giaiDapLevelButton != null)
         {
             giaiDapLevelButton.ShowButton();
@@ -122,7 +122,7 @@ public class LevelManager : MonoBehaviour
         {
             giaiDapLevel.HideText();
         }
-        PanelManager.Instance.levelCompletePanelHide();
+        PanelManager.Instance.levelCompletePanelShow(false);
     }
 
  /*   private void Destroy(int currentLevel)

@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
     private void ActivateLevelCompletePanel()
     {
 
-        PanelManager.Instance.levelGiaiDapPanelHide();
-        PanelManager.Instance.levelCompletePanelShow();
+        PanelManager.Instance.levelGiaiDapPanelShow(false);
+        PanelManager.Instance.levelCompletePanelShow(true);
 
     }
 }

@@ -23,28 +23,16 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    public void levelCompletePanelShow()
+    public void levelCompletePanelShow(bool isActive)
     {
-        levelCompletePanel.SetActive(true);
+        levelCompletePanel.SetActive(isActive);
     }
-    public void levelCompletePanelHide()
+    public void levelGiaiDapPanelShow(bool isActive)
     {
-        levelCompletePanel.SetActive(false);
+        levelGiaiDapPanel.SetActive(isActive);
     }
-    public void levelGiaiDapPanelShow()
+    public void levelQuestPanelShow(bool isActive)
     {
-        levelGiaiDapPanel.SetActive(true);
-    }
-    public void levelGiaiDapPanelHide()
-    {
-        levelGiaiDapPanel.SetActive(false);
-    }
-    public void levelQuestPanelShow()
-    {
-        levelQuestPanel.SetActive(true);
-    }
-    public void levelQuestPanelHide()
-    {
-        levelQuestPanel.SetActive(false);
+        levelQuestPanel.SetActive(isActive);
     }
 }
