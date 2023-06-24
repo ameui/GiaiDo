@@ -499,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4019064764441670260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.37, y: -2.45, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalPosition: {x: -1.365, y: -3.813, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.04814, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4019064763315463167}
@@ -571,10 +571,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19155025, y: 0.15228462}
+  m_Offset: {x: -0.19155025, y: 20.3103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 40, y: 40}
     newSize: {x: 40, y: 40}
     adaptiveTilingThreshold: 0.5
@@ -582,7 +582,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.88629, y: 34.51775}
+  m_Size: {x: 16.88629, y: 33.14021}
   m_EdgeRadius: 0
 --- !u!114 &4019064764441670258
 MonoBehaviour:
@@ -597,8 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomFactor: 1.5
-  delayTime: 0.5
-  effEndLevel: {fileID: 0}
 --- !u!1 &5581114682107064553
 GameObject:
   m_ObjectHideFlags: 0
