@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   melonbite1: {fileID: 7453133742700257102}
   MelonBite: {fileID: 7453133742700257100}
+  isTouching: 0
 --- !u!1 &7453133742700257100
 GameObject:
   m_ObjectHideFlags: 0
