@@ -39,15 +39,24 @@ public class SunMove : ObjectMoverManager
                 {
                     isTouching = true;
                     sunHight = true;
-                    owlSlep.ToggleEyes();
-                    tickCompleteLevel.Tick();
-                    GameManager.Instance.LevelComplete();
+                    
                 }
             }
               
     }
+
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
+        if (IsPlaying())
+        {
+            if (isTouching)
+            {
+                owlSlep.ToggleEyes();
+                tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();
+            }
+        }
     }
+
 }
