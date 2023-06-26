@@ -36,10 +36,14 @@ public class MoveDuoiGa : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (duoiga)
+        if (IsPlaying())
         {
-            egg.showEgg();
+            if (duoiga)
+            {
+                egg.showEgg();
+            }
         }
+        
     }
     /*private IEnumerator CheckEndLevel()
     {

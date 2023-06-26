@@ -1,0 +1,17 @@
+diff a/Assets/Script/Effect/EffectManager.cs b/Assets/Script/Effect/EffectManager.cs	(rejected hunks)
+@@ -38,9 +38,11 @@
+     public void effectEndLevelHide()
+     {
+           gameObject.SetActive(false);
+-/*        emoji.Stop();
+-        emoji1.Stop();
+-        emoji2.Stop();
+-        emoji3.Stop();*/
++        /*       emoji.Stop();
++               emoji1.Stop();
++               emoji2.Stop();
++               emoji3.Stop();*/
++        
+     }
++   
+ }

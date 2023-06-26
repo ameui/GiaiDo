@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.SetMusicVolume(0f);
         AudioManager.Instance.PlaySFX(endClip);// âm thanh win
         AudioManager.Instance.SetMusicVolume(0.5f);
-        Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
+        Invoke(nameof(ActivateLevelCompletePanel), 0.5f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
  
     }
     private void ActivateLevelCompletePanel()
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         PanelManager.Instance.levelEndPanelShow(true);
         PanelManager.Instance.levelGiaiDapPanelShow(false);
         PanelManager.Instance.levelCompletePanelShow(true);
+       /* EffectManager.Instance.effectEndLevelHide(); // Tắt hiệu ứng khi hoàn thành level*/
     }
    
 }

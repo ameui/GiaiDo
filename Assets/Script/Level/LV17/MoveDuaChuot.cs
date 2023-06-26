@@ -33,10 +33,14 @@ public class MoveDuaChuot : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (isTouching)
+        if (IsPlaying())
         {
-            meoSadSad = true;
+            if (isTouching)
+            {
+                meoSadSad = true;
+            }
         }
+       
     }
 
 

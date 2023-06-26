@@ -17,9 +17,13 @@ public class ObjectMoverManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         oldOrderInLayer = spriteRenderer.sortingOrder;
     }
+    protected bool IsPlaying()
+    {
+        return GameManager.Instance.gameState == GameManager.GameState.Playing;
+    }
     protected virtual void OnMouseDown()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.Playing)
+        if (IsPlaying())
         {
             initialScale = transform.localScale;
             /*        initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);*/
@@ -36,7 +40,7 @@ public class ObjectMoverManager : MonoBehaviour
     }
     protected virtual void OnMouseDrag()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.Playing)
+        if (IsPlaying())
         {
             Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentMousePosition.z = 0;
@@ -47,7 +51,7 @@ public class ObjectMoverManager : MonoBehaviour
     }
     protected virtual void OnMouseUp()
     {
-        if(GameManager.Instance.gameState == GameManager.GameState.Playing)
+        if(IsPlaying())
         {
             Debug.Log("OnMouseUp");
             transform.localScale = initialScale;

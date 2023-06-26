@@ -38,13 +38,17 @@ public class LV9_HuouMove : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        BoxCollider2D tulanhCollider = targetObject.GetComponent<BoxCollider2D>();
-        if (isTouching)
+        if (IsPlaying())
         {
-            transform.position = tulanhCollider.bounds.center;
-            tickCompleteLevel.Tick();
-            LevelManager.Instance.CompleteLevel();
+            BoxCollider2D tulanhCollider = targetObject.GetComponent<BoxCollider2D>();
+            if (isTouching)
+            {
+                transform.position = tulanhCollider.bounds.center;
+                tickCompleteLevel.Tick();
+                LevelManager.Instance.CompleteLevel();
+            }
         }
+       
     }
     /*private IEnumerator CheckEndLevel()
     {

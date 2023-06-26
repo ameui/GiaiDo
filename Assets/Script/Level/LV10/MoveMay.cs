@@ -42,12 +42,16 @@ public class MoveMay : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (!isTouching)
+        if (IsPlaying())
         {
-            ice.DaTan();
-            tickCompleteLevel.Tick();
-            GameManager.Instance.LevelComplete();
+            if (!isTouching)
+            {
+                ice.DaTan();
+                tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();
+            }
         }
+       
     }   
     /*private IEnumerator CheckEndLevel()
     {

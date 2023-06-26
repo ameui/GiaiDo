@@ -31,15 +31,22 @@ public class lV1_Watermelon : ObjectMoverManager
         {
             isTouching = false;      
         }
-    }  
+    }
+
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (!isTouching)
-        {        
-            tickCompleteLevel.Tick();
-            GameManager.Instance.LevelComplete();
+
+        if (IsPlaying())
+        {
+            if (!isTouching)
+            {
+                Debug.Log("abc");
+                tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();
+            }
         }
+
     }
 }
 

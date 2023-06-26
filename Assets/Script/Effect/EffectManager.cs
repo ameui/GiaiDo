@@ -16,6 +16,7 @@ public class EffectManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+          
         }
         else
         {
@@ -29,7 +30,7 @@ public class EffectManager : MonoBehaviour
     public void effectEndLevelShow()
     {
         gameObject.SetActive(true);
-/*        emoji.Play();
+   /*     emoji.Play();
         emoji1.Play();
         emoji2.Play();
         emoji3.Play();*/
@@ -37,9 +38,11 @@ public class EffectManager : MonoBehaviour
     public void effectEndLevelHide()
     {
           gameObject.SetActive(false);
-/*        emoji.Stop();
-        emoji1.Stop();
-        emoji2.Stop();
-        emoji3.Stop();*/
+        /*       emoji.Stop();
+               emoji1.Stop();
+               emoji2.Stop();
+               emoji3.Stop();*/
+        
     }
+   
 }

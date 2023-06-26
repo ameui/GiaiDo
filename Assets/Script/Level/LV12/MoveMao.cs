@@ -36,10 +36,14 @@ public class MoveMao : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (maoga)
+        if (IsPlaying())
         {
-            egg.showEgg();
+            if (maoga)
+            {
+                egg.showEgg();
+            }
         }
+       
     }
    /* private IEnumerator CheckEndLevel()
     {

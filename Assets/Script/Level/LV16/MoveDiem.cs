@@ -39,12 +39,16 @@ public class MoveDiem : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        BoxCollider2D viTriDung = ViTriDung.GetComponent<BoxCollider2D>();
-        if (isTouching)
+        if (IsPlaying())
         {
-            transform.position = viTriDung.bounds.center;
-            tickCompleteLevel.Tick();
-            GameManager.Instance.LevelComplete();
+            BoxCollider2D viTriDung = ViTriDung.GetComponent<BoxCollider2D>();
+            if (isTouching)
+            {
+                transform.position = viTriDung.bounds.center;
+                tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();
+            }
         }
+       
     }
 }

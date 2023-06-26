@@ -38,11 +38,15 @@ public class MelonMove : ObjectMoverManager
     protected override void OnMouseUp()
     {
         base.OnMouseUp();
-        if (!isTouching)
+        if (IsPlaying())
         {
-            tickCompleteLevel.Tick();
-            GameManager.Instance.LevelComplete();
+            if (!isTouching)
+            {
+                tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();
+            }
         }
+       
     }
  /*   private IEnumerator CheckEndLevel()
     {
