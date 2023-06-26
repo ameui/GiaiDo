@@ -25,7 +25,7 @@ public class LoadingBar : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene("MenuScene");
+        GameManager.Instance.StartGame();
     }
 }
 

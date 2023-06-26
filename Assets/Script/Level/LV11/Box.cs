@@ -8,6 +8,7 @@ public class Box : MonoBehaviour
     private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     private Donut donut;
+    private DonutAnimator donutAnimator;
     public float pouringAngleThreshold = 80f; // Góc nghiêng tối thiểu để bắt đầu rơi bánh
     private bool hasPoured = false; // Biến kiểm soát việc đã đổ nước hay chưa
     private bool Check = false;
@@ -16,6 +17,7 @@ public class Box : MonoBehaviour
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         donut= GameObject.FindObjectOfType<Donut>();
+        donutAnimator = GameObject.FindObjectOfType<DonutAnimator>();
         StartCoroutine(CheckEndLevel()); // Bắt đầu Coroutine CheckEndLevel
     }
 
@@ -46,6 +48,7 @@ public class Box : MonoBehaviour
             yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
         }
         donut.DonutOn();
+        donutAnimator.ToggleDonut();
         tickCompleteLevel.Tick();
         levelManager.CompleteLevel();
         hasPoured = true;
