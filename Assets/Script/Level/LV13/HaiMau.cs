@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,15 +16,15 @@ public class HaiMau : MonoBehaviour
     public Sprite normalOK; // Hình ảnh của cốc nước bình thường
     public Sprite pouringOK; // Hình ảnh của cốc nước khi đổ
     private SpriteRenderer spriteRenderer;
-    private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
+    private Vector3 old;
     void Start()
     {
         lastAcceleration = Vector3.zero;
         lastShakeTime = Time.time;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+        old = transform.position;
     }
 
     void Update()
@@ -43,8 +44,9 @@ public class HaiMau : MonoBehaviour
             if (shakeCount >= 3)
             {
                 ToggleEyes();
+                transform.position = old;
                 tickCompleteLevel.Tick();
-                levelManager.CompleteLevel();
+                GameManager.Instance.LevelComplete();
                
                 /* spriteRenderer.sprite = pouringOK;*/
                 /*shakeCount = 0;*/

@@ -8,7 +8,8 @@ public class PanelManager : MonoBehaviour
     public GameObject levelCompletePanel;
     public GameObject levelGiaiDapPanel;
     public GameObject levelQuestPanel;
-   
+    public GameObject levelEndPanel;
+
 
     private void Awake()
     {
@@ -32,6 +33,10 @@ public class PanelManager : MonoBehaviour
         levelGiaiDapPanel.SetActive(isActive);
     }
     public void levelQuestPanelShow(bool isActive)
+    {
+        levelQuestPanel.SetActive(isActive);
+    }
+    public void levelEndPanelShow(bool isActive)
     {
         levelQuestPanel.SetActive(isActive);
     }

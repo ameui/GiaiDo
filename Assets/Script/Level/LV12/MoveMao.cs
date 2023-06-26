@@ -13,6 +13,7 @@ public class MoveMao : ObjectMoverManager
         ga = GameObject.FindObjectOfType<Ga>();
         egg = GameObject.FindObjectOfType<Egg>();
         maoga = false;
+        /*StartCoroutine(CheckEndLevel());*/
     }
 
     protected override void OnMouseDrag()
@@ -30,10 +31,24 @@ public class MoveMao : ObjectMoverManager
         if (!areCollidersIntersecting)
         {
             maoga = true;
-        }
-
-        egg.showEgg();
+        }     
     }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (maoga)
+        {
+            egg.showEgg();
+        }
+    }
+   /* private IEnumerator CheckEndLevel()
+    {
+        while (!maoga)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+        egg.showEgg();
+    }*/
 
     public bool GetMaoGa()
     {

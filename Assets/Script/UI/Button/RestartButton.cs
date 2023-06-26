@@ -16,5 +16,6 @@ public class RestartButton : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(clickButton);
         LevelManager.Instance.UpdateLevels();
+        GameManager.Instance.gameState = GameManager.GameState.Playing;
     }
 }

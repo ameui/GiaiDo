@@ -6,13 +6,11 @@ public class MoveMoiThu : ObjectMoverManager
 {
     public GameObject Insidebox;
     private bool isTouching;
-    private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
 
     private void Start()
     {
         isTouching = false;
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();      
     }
 
@@ -30,9 +28,17 @@ public class MoveMoiThu : ObjectMoverManager
         if (!isTouching && overlapResult != null)
         {
             isTouching = true;
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();
+            
 
+        }
+    }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (isTouching)
+        {
+            tickCompleteLevel.Tick();
+            GameManager.Instance.LevelComplete();
         }
     }
 }

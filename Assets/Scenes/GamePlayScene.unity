@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -491,7 +491,7 @@ MonoBehaviour:
   - {fileID: 2949385187977888807, guid: 6d579f39605300d45834adce1c3d2fda, type: 3}
   currentLevelIndex: 0
   questList:
-  - "H\xE3y tim qu\u1EA3 qu\xFDt"
+  - "H\xE3y t\xECm qu\u1EA3 qu\xFDt"
   - "T\xCCm th\u1EE9 c\xF3 v\u1ECB tr\xED cao nh\u1EA5t"
   - "T\xECm mi\u1EBFng d\u01B0a h\u1EA5u kh\xE1c bi\u1EC7t"
   - "T\xECm \u0111\u1ED1ng l\u1EEDa to nh\u1EA5t"
@@ -818,6 +818,7 @@ MonoBehaviour:
   levelCompletePanel: {fileID: 745817343}
   levelGiaiDapPanel: {fileID: 419933779}
   levelQuestPanel: {fileID: 99871434}
+  levelEndPanel: {fileID: 0}
 --- !u!4 &284955850
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,7 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1169,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

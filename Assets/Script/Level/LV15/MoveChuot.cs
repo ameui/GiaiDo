@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class MoveChuot : ObjectMoverManager
 {
-    private int newOrderInLayer = 2;
-    private int newOrderInLayer1 = 4;
     private bool isTouching;
     public GameObject Bua;
     public AnimBua animBua;
@@ -16,21 +14,18 @@ public class MoveChuot : ObjectMoverManager
     private TickCompleteLevel tickCompleteLevel;
     private LevelManager levelManager;
     private bool hasCoroutineStarted = false;
-    private SpriteRenderer spriteRenderer;  
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         isTouching = false;
+      /*  StartCoroutine(CheckEndLevel());*/
     }
-
-   
     protected override void OnMouseDrag()
     {       
        base.OnMouseDrag();
-        SetOrderInLayer();
-       
+
+        animchuot.ToggleChuotOff1();
             BoxCollider2D bua = Bua.GetComponent<BoxCollider2D>();
 
             Vector2 topLeft = new Vector2(bua.bounds.min.x, bua.bounds.max.y);
@@ -39,46 +34,50 @@ public class MoveChuot : ObjectMoverManager
             Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
             if (overlapResult != null)
             {              
-            animBua.Toggle();            
-            SetOrderInLayer1();           
-            StartCoroutine(PerformActionAfterOneSecond(OnCoroutineCompleted));
+            animBua.Toggle();                     
             isTouching = true;
             hasCoroutineStarted = true;
+            tickCompleteLevel.transform.position = Bua.transform.position;
+
+        }
+        else
+        {
+            isTouching = false;
         }
         
     }
-    private void OnCoroutineCompleted()
+    protected override void OnMouseUp()
     {
+        base.OnMouseUp();
+        spriteRenderer.sortingOrder = 4;
         if (isTouching && hasCoroutineStarted)
-        {
-            levelManager.CompleteLevel();
-        }
-    }
-    private void SetOrderInLayer()
-    {
-        spriteRenderer.sortingOrder = newOrderInLayer;
-    }
-
-    private void SetOrderInLayer1()
-    {
-        spriteRenderer.sortingOrder = newOrderInLayer1;
-    }
-
-    private IEnumerator PerformActionAfterOneSecond(Action callback)
-    {
-        yield return new WaitForSeconds(1.15f); // Chờ 1 giây
-        // Cập nhật vị trí của tickCompleteLevel theo vị trí của Chuot
-        tickCompleteLevel.transform.position = Bua.transform.position;
-        
+            animBua.ToggleOff();
         ToggleEyes();
-        animBua.ToggleOff();
         tickCompleteLevel.Tick();
-        if (callback != null)
-        {
-            callback();
-        }
+        LevelManager.Instance.CompleteLevel();
     }
-    
+    /*private IEnumerator CheckEndLevel()
+    {
+
+            while (!isTouching && !hasCoroutineStarted)
+            {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+           
+        animBua.ToggleOff();
+
+        ToggleEyes();
+       
+        tickCompleteLevel.Tick();
+        LevelManager.Instance.CompleteLevel();
+
+    }*/
+/*    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        s
+    }*/
+
     public void ToggleEyes()
     {
         if (spriteRenderer.sprite == normalChuot)

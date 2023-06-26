@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public AudioClip startClip;
     public AudioClip endClip;
-
     public enum GameState
     {
         Start,
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public void StartGame()
     {
         gameState = GameState.Playing;
@@ -71,12 +69,13 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlaySFX(endClip);// âm thanh win
         AudioManager.Instance.SetMusicVolume(0.5f);
         Invoke(nameof(ActivateLevelCompletePanel), 1f); // Gọi hàm ActivateLevelCompletePanel sau 1 giây
+ 
     }
     private void ActivateLevelCompletePanel()
     {
-
+        PanelManager.Instance.levelEndPanelShow(true);
         PanelManager.Instance.levelGiaiDapPanelShow(false);
         PanelManager.Instance.levelCompletePanelShow(true);
-
     }
+   
 }

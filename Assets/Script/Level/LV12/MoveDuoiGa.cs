@@ -14,6 +14,7 @@ public class MoveDuoiGa : ObjectMoverManager
         ga = GameObject.FindObjectOfType<Ga>();
         duoiga = false;
         egg = GameObject.FindObjectOfType<Egg>();
+        /*StartCoroutine(CheckEndLevel());*/
     }
 
     protected override void OnMouseDrag()
@@ -30,11 +31,24 @@ public class MoveDuoiGa : ObjectMoverManager
         if (!areCollidersIntersecting)
         {
             duoiga = true;
-        }
-
-        egg.showEgg();
-
+        }       
     }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (duoiga)
+        {
+            egg.showEgg();
+        }
+    }
+    /*private IEnumerator CheckEndLevel()
+    {
+        while (!duoiga)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+        
+    }*/
     public bool GetDuoiGa()
     {
         return duoiga;

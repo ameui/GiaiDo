@@ -14,11 +14,13 @@ public class NextLevelButton : MonoBehaviour
         button = GetComponent<Button>();
         StartCoroutine(StartFadeIn());
         button.onClick.AddListener(OnNextLevelButtonClick);
+        
     }
     public void OnNextLevelButtonClick()
     {
         AudioManager.Instance.PlaySFX(clickButton);
         LevelManager.Instance.NextLevel();
+        GameManager.Instance.gameState = GameManager.GameState.Playing;
     }
     private IEnumerator FadeIn()
     {

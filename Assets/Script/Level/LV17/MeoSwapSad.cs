@@ -47,7 +47,7 @@ public class MeoSwapSad : MonoBehaviour
         }
         EndLevel();
         tickCompleteLevel.Tick();
-        levelManager.CompleteLevel();
+        GameManager.Instance.LevelComplete();
     }
 
 }

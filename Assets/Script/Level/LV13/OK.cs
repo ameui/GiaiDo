@@ -8,7 +8,7 @@ public class OK : MonoBehaviour
 
     void Start()
     {
-        
+        Vector2 pos = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
     }

@@ -10,16 +10,24 @@ public class Animchuot : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        animator.GetComponent<Animator>().enabled = false;
+        animator.enabled = false;
     }
 
     public void ToggleChuot()
     {
-        animator.GetComponent<Animator>().enabled = enabled;
+        animator.enabled = true;
+        animator.SetBool("up", false);
+
     }
 
     public void ToggleChuotOff()
     {
-        animator.GetComponent<Animator>().enabled = false;
+        animator.SetBool("up", true);
+    }
+
+    public void ToggleChuotOff1()
+    {
+        animator.enabled = false;
+
     }
 }

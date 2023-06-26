@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -17,6 +18,7 @@ public class LV9_HuouMove : ObjectMoverManager
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         tulanhZoom = GameObject.FindObjectOfType<LV9_TulanhZoom>();
+        /*StartCoroutine(CheckEndLevel());*/
     }
     protected override void OnMouseDrag()
     {
@@ -29,11 +31,31 @@ public class LV9_HuouMove : ObjectMoverManager
         if (!isTouching && IsColliderInsideAnother(huouCollider, tulanhCollider))
         {
             isTouching = true;
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();
+            
         }
 
     }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        BoxCollider2D tulanhCollider = targetObject.GetComponent<BoxCollider2D>();
+        if (isTouching)
+        {
+            transform.position = tulanhCollider.bounds.center;
+            tickCompleteLevel.Tick();
+            LevelManager.Instance.CompleteLevel();
+        }
+    }
+    /*private IEnumerator CheckEndLevel()
+    {
+        while (!isTouching)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+       
+        tickCompleteLevel.Tick();
+        LevelManager.Instance.CompleteLevel();
+    }*/
     private bool IsColliderInsideAnother(BoxCollider2D colliderA, BoxCollider2D colliderB)
     {
         return colliderA.bounds.min.x > colliderB.bounds.min.x &&

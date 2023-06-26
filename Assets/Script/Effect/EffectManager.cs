@@ -29,17 +29,17 @@ public class EffectManager : MonoBehaviour
     public void effectEndLevelShow()
     {
         gameObject.SetActive(true);
-        emoji.Play();
+/*        emoji.Play();
         emoji1.Play();
         emoji2.Play();
-        emoji3.Play();
+        emoji3.Play();*/
     }
     public void effectEndLevelHide()
     {
           gameObject.SetActive(false);
-        emoji.Stop();
+/*        emoji.Stop();
         emoji1.Stop();
         emoji2.Stop();
-        emoji3.Stop();
+        emoji3.Stop();*/
     }
 }

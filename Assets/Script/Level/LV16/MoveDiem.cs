@@ -7,12 +7,11 @@ public class MoveDiem : ObjectMoverManager
 {
     public GameObject ViTriDung;
     private bool isTouching;
-    private LevelManager levelManager;
+
     private TickCompleteLevel tickCompleteLevel;
     public void Start()
     {
         isTouching = false;
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
     }
     protected override void OnMouseDrag()
@@ -26,15 +25,26 @@ public class MoveDiem : ObjectMoverManager
         Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
         if (overlapResult != null)
         {
-            transform.position = viTriDung.bounds.center;
+           
             if (!isTouching)
             {
                 isTouching = true;
-                tickCompleteLevel.Tick();
-                levelManager.CompleteLevel();
+               /* tickCompleteLevel.Tick();
+                GameManager.Instance.LevelComplete();*/
 
             }
 
+        }
+    }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        BoxCollider2D viTriDung = ViTriDung.GetComponent<BoxCollider2D>();
+        if (isTouching)
+        {
+            transform.position = viTriDung.bounds.center;
+            tickCompleteLevel.Tick();
+            GameManager.Instance.LevelComplete();
         }
     }
 }

@@ -8,12 +8,14 @@ public class MelonMove : ObjectMoverManager
     private TickCompleteLevel tickCompleteLevel;
     public LV3_MelonBite melonbite1;
     public GameObject MelonBite;
-
+    public bool isTouching; 
 
     private void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
+        isTouching = true;
+  /*      StartCoroutine(CheckEndLevel());*/
     }
     protected override void OnMouseDrag()
     {
@@ -29,8 +31,26 @@ public class MelonMove : ObjectMoverManager
         // Kiểm tra liệu hai đối tượng có chạm vào nhau hay không
         if (overlapResult == null)
         {
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();
+            isTouching = false;
+ 
         }
     }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (!isTouching)
+        {
+            tickCompleteLevel.Tick();
+            GameManager.Instance.LevelComplete();
+        }
+    }
+ /*   private IEnumerator CheckEndLevel()
+    {
+        while (isTouching)
+        {
+            yield return null; // Chờ đợi cho đến khi khung hình tiếp theo
+        }
+        tickCompleteLevel.Tick();
+        LevelManager.Instance.CompleteLevel();
+    }*/
 }

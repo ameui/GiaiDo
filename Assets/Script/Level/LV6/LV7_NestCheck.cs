@@ -30,11 +30,15 @@ public class LV7_NestCheck : MonoBehaviour
     // Hàm gọi khi nhấp chuột vào đối tượng này
     public void OnMouseDown()
     {
-        if (henMove.isTouching == false)
+        if (GameManager.Instance.gameState == GameManager.GameState.Playing)
         {
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();
+            if (henMove.isTouching == false)
+            {
+                tickCompleteLevel.Tick();
+                LevelManager.Instance.CompleteLevel();
+            }
         }
+       
        
 
     }

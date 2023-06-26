@@ -5,7 +5,6 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     public MoveLid moveLid;
-    private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     private Donut donut;
     private DonutAnimator donutAnimator;
@@ -14,7 +13,6 @@ public class Box : MonoBehaviour
     private bool Check = false;
     private void Start()
     {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         donut= GameObject.FindObjectOfType<Donut>();
         donutAnimator = GameObject.FindObjectOfType<DonutAnimator>();
@@ -50,7 +48,7 @@ public class Box : MonoBehaviour
         donut.DonutOn();
         donutAnimator.ToggleDonut();
         tickCompleteLevel.Tick();
-        levelManager.CompleteLevel();
+       GameManager.Instance.LevelComplete();
         hasPoured = true;
     }
 }

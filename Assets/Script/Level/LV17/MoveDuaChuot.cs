@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class MoveDuaChuot : ObjectMoverManager
 {
-    private int oldOrderInLayer = 1;
-    private int newOrderInLayer = 2;
-    private SpriteRenderer spriteRenderer;
     private bool isTouching;
     public bool meoSadSad;
     public GameObject DuaChuot;
     
     public void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         isTouching = false;  
         meoSadSad = false;
     }
@@ -21,7 +17,6 @@ public class MoveDuaChuot : ObjectMoverManager
     protected override void OnMouseDrag()
     {
         base.OnMouseDrag();
-        SetOrderInLayer();
         BoxCollider2D duaChuot = DuaChuot.GetComponent<BoxCollider2D>();
 
         Vector2 topLeft = new Vector2(duaChuot.bounds.min.x, duaChuot.bounds.max.y);
@@ -32,17 +27,17 @@ public class MoveDuaChuot : ObjectMoverManager
         if (!isTouching && overlapResult != null)
         {
             isTouching = true;
+            
+        }
+    }
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (isTouching)
+        {
             meoSadSad = true;
         }
     }
-    private void SetOrderInLayer()
-    {
-        spriteRenderer.sortingOrder = newOrderInLayer;
-    }
 
-    public void OnMouseUp()
-    {
-        spriteRenderer.sortingOrder = oldOrderInLayer;
-    }
 
 }

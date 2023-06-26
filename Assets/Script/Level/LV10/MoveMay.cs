@@ -15,7 +15,7 @@ public class MoveMay : ObjectMoverManager
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         isTouching = true;
-        StartCoroutine(CheckEndLevel()); // Bắt đầu Coroutine CheckEndLevel
+       /* StartCoroutine(CheckEndLevel());*/ // Bắt đầu Coroutine CheckEndLevel
     }
 
     protected override void OnMouseDrag()
@@ -39,7 +39,17 @@ public class MoveMay : ObjectMoverManager
            
         }
     }
-    private IEnumerator CheckEndLevel()
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (!isTouching)
+        {
+            ice.DaTan();
+            tickCompleteLevel.Tick();
+            GameManager.Instance.LevelComplete();
+        }
+    }   
+    /*private IEnumerator CheckEndLevel()
     {
         while (isTouching)
         {
@@ -48,5 +58,5 @@ public class MoveMay : ObjectMoverManager
         ice.DaTan();
         tickCompleteLevel.Tick();
         LevelManager.Instance.CompleteLevel();
-    }
+    }*/
 }

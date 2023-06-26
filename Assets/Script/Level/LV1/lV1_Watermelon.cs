@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class lV1_Watermelon : ObjectMoverManager
 {
-    private LevelManager levelManager;
     private TickCompleteLevel tickCompleteLevel;
     public LV1_Mandarin mandarin1;
     public GameObject Mandarin;
@@ -13,7 +12,6 @@ public class lV1_Watermelon : ObjectMoverManager
 
     private void Start()
     {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
         tickCompleteLevel = GameObject.FindObjectOfType<TickCompleteLevel>();
         isTouching = true; 
         
@@ -31,11 +29,18 @@ public class lV1_Watermelon : ObjectMoverManager
         // Kiểm tra liệu hai đối tượng có chạm vào nhau hay không
         if (isTouching && overlapResult == null)
         {
-            isTouching = false;
-            tickCompleteLevel.Tick();
-            levelManager.CompleteLevel();           
+            isTouching = false;      
         }
     }  
+    protected override void OnMouseUp()
+    {
+        base.OnMouseUp();
+        if (!isTouching)
+        {        
+            tickCompleteLevel.Tick();
+            GameManager.Instance.LevelComplete();
+        }
+    }
 }
 
 
