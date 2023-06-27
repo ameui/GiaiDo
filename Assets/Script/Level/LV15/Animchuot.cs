@@ -16,13 +16,13 @@ public class Animchuot : MonoBehaviour
     public void ToggleChuot()
     {
         animator.enabled = true;
-        animator.SetBool("up", false);
+        animator.SetBool("on", false);
 
     }
 
     public void ToggleChuotOff()
     {
-        animator.SetBool("up", true);
+        animator.SetBool("on", true);
     }
 
     public void ToggleChuotOff1()
