@@ -29,8 +29,11 @@ public class HaiMau : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.Playing)
+        {
+            CheckShake();
+        }
         
-        CheckShake();
     }
 
     private void CheckShake()
@@ -43,6 +46,7 @@ public class HaiMau : MonoBehaviour
             lastShakeTime = Time.time;
             if (shakeCount >= 3)
             {
+                transform.position = old;
                 ToggleEyes();
                 transform.position = old;
                 tickCompleteLevel.Tick();

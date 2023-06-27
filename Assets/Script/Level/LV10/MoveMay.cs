@@ -49,6 +49,9 @@ public class MoveMay : ObjectMoverManager
                 ice.DaTan();
                 tickCompleteLevel.Tick();
                 GameManager.Instance.LevelComplete();
+            }else
+            {
+                sun.OffBoxSun();
             }
         }
        

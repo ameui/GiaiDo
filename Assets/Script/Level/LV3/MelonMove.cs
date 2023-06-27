@@ -45,6 +45,10 @@ public class MelonMove : ObjectMoverManager
                 tickCompleteLevel.Tick();
                 GameManager.Instance.LevelComplete();
             }
+            else
+            {
+                melonbite1.melonbiteOff();
+            }
         }
        
     }

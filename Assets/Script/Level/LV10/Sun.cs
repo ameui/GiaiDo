@@ -15,4 +15,8 @@ public class Sun : MonoBehaviour
     {
         sun.enabled = true;
     }
+    public void OffBoxSun()
+    {
+        sun.enabled = false;
+    }
 }

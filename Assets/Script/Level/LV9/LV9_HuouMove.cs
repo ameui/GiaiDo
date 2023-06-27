@@ -31,7 +31,7 @@ public class LV9_HuouMove : ObjectMoverManager
         if (!isTouching && IsColliderInsideAnother(huouCollider, tulanhCollider))
         {
             isTouching = true;
-            
+            transform.position = tulanhCollider.bounds.center;
         }
 
     }
@@ -40,10 +40,10 @@ public class LV9_HuouMove : ObjectMoverManager
         base.OnMouseUp();
         if (IsPlaying())
         {
-            BoxCollider2D tulanhCollider = targetObject.GetComponent<BoxCollider2D>();
+            
             if (isTouching)
             {
-                transform.position = tulanhCollider.bounds.center;
+               
                 tickCompleteLevel.Tick();
                 LevelManager.Instance.CompleteLevel();
             }

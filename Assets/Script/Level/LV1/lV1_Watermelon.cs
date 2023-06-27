@@ -45,6 +45,10 @@ public class lV1_Watermelon : ObjectMoverManager
                 tickCompleteLevel.Tick();
                 GameManager.Instance.LevelComplete();
             }
+            else
+            {
+                mandarin1.madarinOff();
+            }
         }
 
     }

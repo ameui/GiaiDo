@@ -21,29 +21,34 @@ public class MoveChuot : ObjectMoverManager
         isTouching = false;
       /*  StartCoroutine(CheckEndLevel());*/
     }
+    private void Update()
+    {
+        BoxCollider2D bua = Bua.GetComponent<BoxCollider2D>();
+
+        Vector2 topLeft = new Vector2(bua.bounds.min.x, bua.bounds.max.y);
+        Vector2 bottomRight = new Vector2(bua.bounds.max.x, bua.bounds.min.y);
+
+        Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
+        if (overlapResult != null)
+        {
+            animBua.Toggle();
+            isTouching = true;
+            hasCoroutineStarted = true;
+            tickCompleteLevel.transform.position = Bua.transform.position;
+            Debug.Log("true");
+        }
+        else
+        {
+            isTouching = false;
+            Debug.Log("fasle");
+        }
+    }
     protected override void OnMouseDrag()
     {       
        base.OnMouseDrag();
 
         animchuot.ToggleChuotOff1();
-            BoxCollider2D bua = Bua.GetComponent<BoxCollider2D>();
-
-            Vector2 topLeft = new Vector2(bua.bounds.min.x, bua.bounds.max.y);
-            Vector2 bottomRight = new Vector2(bua.bounds.max.x, bua.bounds.min.y);
-
-            Collider2D overlapResult = Physics2D.OverlapArea(topLeft, bottomRight, 1 << LayerMask.NameToLayer("Hen"));
-            if (overlapResult != null)
-            {              
-            animBua.Toggle();                     
-            isTouching = true;
-            hasCoroutineStarted = true;
-            tickCompleteLevel.transform.position = Bua.transform.position;
-
-        }
-        else
-        {
-            isTouching = false;
-        }
+            
         
     }
     protected override void OnMouseUp()
@@ -51,10 +56,13 @@ public class MoveChuot : ObjectMoverManager
         base.OnMouseUp();
         spriteRenderer.sortingOrder = 4;
         if (isTouching && hasCoroutineStarted)
+        {
             animBua.ToggleOff();
-        ToggleEyes();
-        tickCompleteLevel.Tick();
-        LevelManager.Instance.CompleteLevel();
+            ToggleEyes();
+            tickCompleteLevel.Tick();
+            LevelManager.Instance.CompleteLevel();
+        }
+           
     }
     /*private IEnumerator CheckEndLevel()
     {

@@ -16,5 +16,9 @@ public class LV1_Mandarin : MonoBehaviour
     {
         Mandarin.enabled = true;
     }
+    public void madarinOff()
+    {
+        Mandarin.enabled = false;
+    }
 }
 

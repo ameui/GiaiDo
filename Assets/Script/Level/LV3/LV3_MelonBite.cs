@@ -42,4 +42,8 @@ public class LV3_MelonBite : MonoBehaviour
     {
         MelonBite.enabled = true;
     }
+    public void melonbiteOff()
+    {
+        MelonBite.enabled = false;
+    }
 }
